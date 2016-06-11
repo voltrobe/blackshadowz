@@ -104,12 +104,12 @@ echo $dom->saveXML();
  ---phpsqlsearch_map.html---
  
  
- 
+ <!--
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
-    <title>Google Maps AJAX + mySQL/PHP Example</title>
+    <title>Google Maps AJAX + MySQL/PHP </title>
     <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY"
             type="text/javascript"></script>
     <script type="text/javascript">
@@ -260,3 +260,4 @@ echo $dom->saveXML();
     <div id="map" style="width: 100%; height: 80%"></div>
   </body>
 </html>
+-->
