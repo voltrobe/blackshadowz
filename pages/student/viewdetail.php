@@ -1,8 +1,9 @@
 <?php
-
-$id=$_GET['id'] ;
-
+session_start();
+if(!isset($_SESSION['userid']))
+header('Location: ../../index.php');
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -74,7 +75,7 @@ $id=$_GET['id'] ;
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Students List</li>
+        <li class="active">Student details</li>
       </ol>
     </section>
 
@@ -84,20 +85,23 @@ $id=$_GET['id'] ;
         <div class="col-xs-12">
          <!-- /.box -->
 
-          <div class="box">
+          <div class="box" style="width:50%">
             <div class="box-header">
-              <h3 class="box-title">List of all the students.</h3>
+              <h3 class="box-title">Details of the student.</h3>
             </div>
             <!-- /.box-header --> 
             <div class="box-body">
-
-<?php
+              <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                
+                            <?php
+                            $id=$_GET['id'] ;
 include 'connect.php';
-$q=mysql_query("select * from student_info where id=$id");
+$q=mysql_query("select *from student_info where id=$id");
 $num=mysql_num_rows($q);
 if($num > 0)
 {
-	
+	$i=1;
 	while($row=mysql_fetch_array($q))
 	{
 		$name=$row['name'];
@@ -112,19 +116,65 @@ if($num > 0)
         
 		$feespaid=$row['feespaid'];
 		$totalfees=$row['totalfees'];
+		$myfile=$row['myfile'];
 		
 		$dues=$row['totalfees']-$row['feespaid'];
-		echo "yoyo";
+		?>
 
-//function pops($eventy){
-//if(isset($_GET['popy'])){
+                 <tr>
+                  <th>Sr. No.</th>
+                  <td><?php echo $id;?></td>
+                 </tr>
+                 <tr> 
+                  <th>Student Name</th>
+             	  <td><?php echo $name;?></td>
+             	 </tr>
+             	  <tr> 
+                  <th>Email</th>
+                  <td><?php echo $email;?></td>
+                  </tr>
+                 <tr> 
+                  <th>Date of joining</th>
+                  <td><?php echo $doj;?></td>
+                  </tr>
+                  <tr>
+                  <th>Contact info</th>
+                  <td><?php echo $contact;?></td>
+                  </tr>
+                  <tr>
+                  <th>Total Fees</th>
+                  <td><?php echo $totalfees;?></td>
+                  </tr>
+                  <tr>
+                  <th>Fees paid</th>
+                  <td><?php echo $feespaid;?></td>
+                  </tr>
+                  <tr>
+                  <th>Dues</th>
+                  <td><?php echo $dues;?></td>
+                  </tr>
+                  <tr>
+                  <th>Address</th>
+                  <td><?php echo $address;?></td>
+                  </tr>
+                  <tr>
+                  <th>Photo</th>
+                  <td><img src="<?php echo $myfile;?>" height="200px"></td>
 
-
-
-}
+                  		<?php
+		$i++;
+	}
+		
 }
 ?>
- </div>
+                </tr>
+                </thead>
+                <tbody>
+
+                  
+                                </tbody>
+              </table>
+            </div>
             <!-- /.box-body -->
           </div>
           <!-- /.box -->
@@ -167,6 +217,6 @@ if($num > 0)
 <script src="../../dist/js/app.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="../../dist/js/demo.js"></script>
+<!-- page script -->
 </body>
 </html>
-
