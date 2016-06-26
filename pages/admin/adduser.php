@@ -1,7 +1,7 @@
 <?php
 session_start();
 if(!isset($_SESSION['userid']))
-header('Location: /../../index.php');
+header('Location: ../../index.php');
 ?>
 <!DOCTYPE html>
 <html>
@@ -117,7 +117,7 @@ header('Location: /../../index.php');
                   <label for="inputEmail3" class="col-sm-2 control-label">Email *</label>
 
                   <div class="col-md-6">
-                    <input type="password" class="form-control" id="email" name="email" placeholder="Email" required>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
                   </div></div>
                   
                 <div class="form-group">
@@ -130,7 +130,7 @@ header('Location: /../../index.php');
                   <label for="inputEmail3" class="col-sm-2 control-label">Confirm Password *</label>
 
                   <div class="col-md-6">
-                    <input type="email" class="form-control" id="pass2" name="pass2" placeholder="Confirm Password" onkeyup="checkPass(); return false;" required>
+                    <input type="password" class="form-control" id="pass2" name="pass2" placeholder="Confirm Password" onkeyup="checkPass(); return false;" required>
                   <span id="confirmMessage" class="confirmMessage"></span>
                   </div></div>
 

@@ -1,9 +1,8 @@
 <?php
-session_start();
-if(!isset($_SESSION['userid']))
-header('Location: ../../index.php');
-?>
 
+$id=$_GET['id'] ;
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -91,27 +90,14 @@ header('Location: ../../index.php');
             </div>
             <!-- /.box-header --> 
             <div class="box-body">
-              <table id="example1" class="table table-bordered table-striped">
-                <thead>
-                <tr>
-                  <th>Sr. No.</th>
-                  <th>Student Name</th>
-                  <th>Date of joining</th>
-                  <th>Contact info</th>
-                  <th>Total Fees</th>
-                  <th>Fees paid</th>
-                  <th>Dues</th>
-                </tr>
-                </thead>
-                <tbody>
-                
-                            <?php
+
+<?php
 include 'connect.php';
-$q=mysql_query("select *from student_info");
+$q=mysql_query("select * from student_info where id=$id");
 $num=mysql_num_rows($q);
 if($num > 0)
 {
-	$i=1;
+	
 	while($row=mysql_fetch_array($q))
 	{
 		$name=$row['name'];
@@ -128,30 +114,17 @@ if($num > 0)
 		$totalfees=$row['totalfees'];
 		
 		$dues=$row['totalfees']-$row['feespaid'];
-		?>
+		echo "yoyo";
 
-                
-                <tr>
-                  <td><?php echo $i;?></td>
-                  <td><a href="viewdetail.php?id=<?php echo $id;?>"><span id="name"><?php echo $name;?></span></a></td>
-                  <td><?php echo $doj;?></td>
-                  <td><?php echo $contact;?></td>
-                  <td><?php echo $totalfees;?></td>
-                  <td><?php echo $feespaid;?></td>
-                  <td><?php echo $dues;?></td>
-                  
-                  		<?php
-		$i++;
-	}
-		
+//function pops($eventy){
+//if(isset($_GET['popy'])){
+
+
+
+}
 }
 ?>
-
-                  
-                </tr>
-                </tbody>
-              </table>
-            </div>
+ </div>
             <!-- /.box-body -->
           </div>
           <!-- /.box -->
@@ -194,86 +167,6 @@ if($num > 0)
 <script src="../../dist/js/app.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="../../dist/js/demo.js"></script>
-<!-- page script -->
-<script>
-  $(function () {
-    $("#example1").DataTable();
-    $('#example2').DataTable({
-      "paging": true,
-      "lengthChange": false,
-      "searching": false,
-      "ordering": true,
-      "info": true,
-      "autoWidth": false
-    });
-        //popup
-$('#demo').popModal({
-html : $('#content').html()
-});	
-
-  });
-</script>
 </body>
 </html>
-
-<?php
-//function pops($eventy){
-//if(isset($_GET['popy'])){
-echo<<<_END
-<div id="popup1" style="display:none">
-	<div class="popup">
-		<h3>Details of: $name</h3>
-
-<div class="box-header with-border">
-		<div class="table-responsive">
-            <table class="table">
-              <tr>
-                <th style="width:50%">Name:</th>
-                <td>$name</td>
-              </tr>
-              <tr>
-                <th>Email:</th>
-                <td>$email</td>
-              </tr>
-              <tr>
-                <th>Contact no.:</th>
-                <td>$contact</td>
-              </tr>
-              <tr>
-                <th>Age:</th>
-                <td>$age</td>
-              </tr>
-              <tr>
-                <th>Joining Date:</th>
-                <td>$doj</td>
-              </tr>
-              <tr>
-                <th>Total Fees:</th>
-                <td>$totalfees</td>
-              </tr>
-              <tr>
-                <th>Fees Paid:</th>
-                <td>$feespaid</td>
-              </tr>
-              <tr>
-                <th>Address:</th>
-                <td>$address</td>
-              </tr>
-            </table>          
-          </div>
-          <div class="popModal_footer">
-<button type="button" data-popModalBut="ok">ok</button>
-<button type="button" data-popModalBut="cancel">cancel</button>
-</div>
-</div>
-
-
-
-
-	</div>
-</div>
-_END;
-//}
-//}
-?>
 
