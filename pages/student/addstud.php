@@ -8,6 +8,7 @@ $age=$_POST['age'];
 $doj=$_POST['datepicker'];
 $totalfees=$_POST['totalfees'];
 $feespaid=$_POST['feespaid'];
+$batch=$_POST['batch'];
 //$password=$_POST['password'];
 
 
@@ -65,7 +66,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 }
 }
 }
-$q=mysql_query("insert into student_info(name,email,contact,age,doj,totalfees,feespaid,address,myfile) values ('$name','$email','$contact','$age','$doj','$totalfees','$feespaid','$address','$myfile')");
+$q=mysql_query("insert into student_info(name,email,contact,age,doj,totalfees,feespaid,address,myfile,batch) values ('$name','$email','$contact','$age','$doj','$totalfees','$feespaid','$address','$myfile','$batch')");
 /*echo "insert into patient_info(adharid,paientname,address,phonenumber,emailid) values ('$adharid','$name','$address','$phoneno','$emailid')";*/
 if($q>0)
 {

@@ -82,23 +82,40 @@ header('Location: ../../index.php');
     <!-- Main content -->
     <section class="content">
       <div class="row">
-        <div class="col-xs-12">
+        <div class="col-md-7">
          <!-- /.box -->
 
-          <div class="box" style="width:50%">
-            <div class="box-header">
-              <h3 class="box-title">Details of the student.</h3>
-            </div>
+          <div class="box box-solid">
+		
+				<div class="box-header with-border">
+				<i class="fa fa-text-width"></i>
+				<h3 class="box-title">Details of the student.</h3>
+				</div>
             <!-- /.box-header --> 
-            <div class="box-body">
+            <div id='tabledata' class="box-body">
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 
-                            <?php
-                            $id=$_GET['id'] ;
+<?php
+      $id=$_GET['id'] ;
+	  
 include 'connect.php';
-$q=mysql_query("select *from student_info where id=$id");
+$q=mysql_query("select * from student_info where id=$id");
 $num=mysql_num_rows($q);
+
+if(isset($_GET['updatefields']))
+{
+	//$id=$_GET['userid'];
+	$_GET['name'];
+	$_GET['email'];
+	$_GET['contact'];
+	$_GET['doj'];
+	$_GET['fees'];
+	$_GET['address'];
+	
+	mysql_query("update student_info set name='".$_GET['name']."',email='".$_GET['email']."',contact='".$_GET['contact']."',doj='".$_GET['doj']."',totalfees=".$_GET['fees'].",address='".$_GET['address']."'  where id=$id");
+}
+
 if($num > 0)
 {
 	$i=1;
@@ -121,53 +138,70 @@ if($num > 0)
 		$dues=$row['totalfees']-$row['feespaid'];
 		?>
 
-                 <tr>
-                  <th>Sr. No.</th>
-                  <td><?php echo $id;?></td>
-                 </tr>
-                 <tr> 
+                 <td>
+				  <tr> 
                   <th>Student Name</th>
-             	  <td><?php echo $name;?></td>
+				  <td><input type="hidden" class="txtableid"  value="<?php echo $id;?>" >
+             	  <input type="text" style='display:none;' class="txtablename"  value="<?php echo $name;?>" >
+				  <span id='areaname'><?php echo $name;?></span>
+				  </td>
              	 </tr>
              	  <tr> 
                   <th>Email</th>
-                  <td><?php echo $email;?></td>
+                  <td><input type="text" style='display:none;' class="txtableemail"  value="<?php echo $email;?>" >
+				  <span id='areaemail'><?php echo $email;?></span>
+				  </td>
                   </tr>
                  <tr> 
                   <th>Date of joining</th>
-                  <td><?php echo $doj;?></td>
+                  <td><input type="text" style='display:none;' class="txtabledoj"  value="<?php echo $doj;?>" >
+				  <span id='areadoj'><?php echo $doj;?></span>
+				  </td>
                   </tr>
                   <tr>
                   <th>Contact info</th>
-                  <td><?php echo $contact;?></td>
+                  <td><input type="text" style='display:none;' class="txtablecontact"  value="<?php echo $contact;?>" >
+				  <span id='areacontact'><?php echo $contact;?></span>
+				  </td>
                   </tr>
                   <tr>
                   <th>Total Fees</th>
-                  <td><?php echo $totalfees;?></td>
+                  <td><input type="text" style='display:none;' class="txtablefees"  value="<?php echo $totalfees;?>" >
+				  <span id='areafees'><?php echo $totalfees;?></span>
+				  </td>
                   </tr>
                   <tr>
                   <th>Fees paid</th>
-                  <td><?php echo $feespaid;?></td>
+                  <td><span class='col-sm-2' id='feespaid'><?php echo $feespaid;?></span>
+				  <span class='col-sm-8'>
+					<div class="input-group margin">
+						<div class="input-group-btn">
+					<button id='feesedit' type="button" onclick="feespaid(<?php echo $id;?>,<?php echo $feespaid;?>)"  class="btn btn-success">Pay</button>
+						</div>
+						<!-- /btn-group -->
+					<input id='feesinput' placeholder='Enter Paid Amount' class="form-control" type="text"/>
+					</div>
+				  
+				  </td>
                   </tr>
                   <tr>
                   <th>Dues</th>
-                  <td><?php echo $dues;?></td>
+                  <td><span id='feesdues'><?php echo $dues;?></span>
+				  </td>
                   </tr>
                   <tr>
                   <th>Address</th>
-                  <td><?php echo $address;?></td>
+                  <td><input type="text" style='display:none;' class="txtableaddr"  value="<?php echo $address;?>" >
+				  <span id='areaaddr'><?php echo $address;?></span>
+				  </td>
                   </tr>
-                  <tr>
-                  <th>Photo</th>
-                  <td><img src="<?php echo $myfile;?>" height="200px"></td>
-
-                  		<?php
+                <?php
 		$i++;
 	}
 		
 }
 ?>
-                </tr>
+                
                 </thead>
                 <tbody>
 
@@ -178,6 +212,51 @@ if($num > 0)
             <!-- /.box-body -->
           </div>
           <!-- /.box -->
+        </div>
+		<div  class="col-md-5">
+          <!-- Widget: user widget style 1 -->
+          <div id='tabledatapic' class="box box-widget widget-user">
+            <!-- Add the bg color to the header using any of the bg-* classes -->
+            <div class="widget-user-header bg-black" style="background: url('../../dist/img/photo1.png') center center;">
+              <h2 class="widget-user-username"><?php echo ucfirst($name); ?></h2>
+              <h5 class="widget-user-desc">Student</h5>
+            </div>
+            <div class="widget-user-image">
+              <img class="img-circle" style='width:110px;border-radius:30% ;margin-left:-10px;' src="<?php echo $myfile;?>" alt="User Avatar">
+            </div><br/>
+            <div class="box-footer">
+              <div class="row">
+                <div class="col-sm-3 border-right">
+                  <div class="description-block">
+                    <h5 class="description-header"><?php echo $id ?></h5>
+                    <span class="description-text">Serial No</span>
+                  </div>
+                  <!-- /.description-block -->
+                </div>
+                <!-- /.col -->
+                <div class="col-sm-6 border-right">
+                  <div class="description-block">
+                    <h6 class="description-header"><?php echo $email ?></h6>
+                    <span class="description-text">EMAIL</span>
+                  </div>
+                  <!-- /.description-block -->
+                </div>
+                <!-- /.col -->
+                <div class="col-sm-3">
+                  <div class="description-block">
+                    <h5 class="description-header"><?php echo $age ?></h5>
+                    <span class="description-text">AGE</span>
+                  </div>
+                  <!-- /.description-block -->
+                </div>
+                <!-- /.col -->
+              </div>
+			  <!-- /.row -->
+            </div>
+          </div>
+		  <input class='btn btn-block btn-primary btn-lg' id='edit' value='Update' type='button'/>
+            
+          <!-- /.widget-user -->
         </div>
         <!-- /.col -->
       </div>
@@ -203,7 +282,7 @@ if($num > 0)
 <!-- jQuery 2.2.0 -->
 <script src="../../plugins/jQuery/jQuery-2.2.0.min.js"></script>
 <!--Popup script-->
-<script src="../popup/popModal.js"></script>
+ <script src="../popup/popModal.js"></script>
 <!-- Bootstrap 3.3.6 -->
 <script src="../../bootstrap/js/bootstrap.min.js"></script>
 <!-- DataTables -->
@@ -213,10 +292,96 @@ if($num > 0)
 <script src="../../plugins/slimScroll/jquery.slimscroll.min.js"></script>
 <!-- FastClick -->
 <script src="../../plugins/fastclick/fastclick.js"></script>
+<script src="../../plugins/pace-macosx.js"></script>
 <!-- AdminLTE App -->
 <script src="../../dist/js/app.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="../../dist/js/demo.js"></script>
 <!-- page script -->
+<script type="text/javascript">
+	var j=1;
+	$(document).ajaxStart(function() { Pace.restart(); });
+function feespaid(studid,paid) {
+		
+	 if($('#feesinput').val()){
+	 var feesvalue=$('#feesinput').val();
+	 $('#feesedit').innerHTML="updating..";
+	 //alert(feesvalue);
+  $.get("duescalc.php?studid="+studid+"&paidamt="+feesvalue,function(data){
+	fulldata=data.split("|");
+	 $('#feespaid').html(fulldata[0]);
+	 $('#feesdues').html(fulldata[1]);
+	 //alert(fulldata[0]);
+	 $('#feesinput').val('');
+	$('#feesedit').innerHTML="Pay";
+   });
+  } //endIF
+ 
+}
+</script>
+
+<script>
+var i=1;
+//$('.emailand_clas').attr('readonly','readonly');
+$("#edit").click(function() {
+if(i%2==0)
+{
+ //$('.txtableid').hide();
+  $('.txtablename').hide();
+   $('.txtableemail').hide();
+    $('.txtableaddr').hide();
+     $('.txtablecontact').hide();
+      $('.txtablefees').hide();
+       $('.txtabledoj').hide();
+        /*
+// $('#areaid').html($('.txtableid').val());
+ $('#areaname').html($('.txtablename').val());
+$('#areaemail').html($('.txtableemail').val());
+$('#areadoj').html($('.txtabledoj').val());
+$('#areaaddr').html($('.txtableaddr').val());
+$('#areacontact').html($('.txtablecontact').val());
+$('#areafees').html($('.txtablefees').val()); */
+
+var urly="name="+$('.txtablename').val()+"&email="+$('.txtableemail').val()+"&doj="+$('.txtabledoj').val()+"&contact="+$('.txtablecontact').val()+"&fees="+$('.txtablefees').val()+"&address="+$('.txtableaddr').val();
+
+//$('#areaid').show();
+ $('#areaname').show();
+ $('#areaemail').show();
+ $('#areadoj').show();
+ $('#areaaddr').show();
+ $('#areacontact').show();
+  $('#areafees').show();
+  
+  $.get("viewdetail.php?id="+$('.txtableid').val()+"&updatefields=1&"+urly,function(){
+    
+	  });
+	  
+	$('#tabledatapic').load("viewdetail.php?id="+$('.txtableid').val()+" #tabledatapic");
+	//$('.txtablefees').change(function(){
+		$('#tabledata').load("viewdetail.php?id="+$('.txtableid').val()+" #tabledata");
+		//});
+}
+else{
+	
+	
+ //$('#areaid').hide();
+ $('#areaaddr').hide();
+ $('#areaname').hide();
+ $('#areacontact').hide();
+ $('#areafees').hide();
+ $('#areadoj').hide();
+ $('#areaemail').hide();
+ 
+ //$('.txtableid').show();
+$('.txtablename').show();
+$('.txtableemail').show();
+$('.txtabledoj').show();
+$('.txtableaddr').show();
+$('.txtablecontact').show();
+$('.txtablefees').show();
+}
+i+=1;
+});
+</script>
 </body>
 </html>

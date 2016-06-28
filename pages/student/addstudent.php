@@ -29,6 +29,8 @@ header('Location: ../../index.php');
     <!-- bootstrap datepicker -->
   <link rel="stylesheet" href="../../plugins/datepicker/datepicker3.css">
 
+  <!-- Select2 -->
+  <link rel="stylesheet" href="../../plugins/select2/select2.min.css">
   <!-- DataTables -->
   <link rel="stylesheet" href="../../plugins/datatables/dataTables.bootstrap.css">
   <!-- Theme style -->
@@ -105,18 +107,18 @@ header('Location: ../../index.php');
             <!-- /.box-header -->
             <!-- form start -->
             <form class="form-horizontal" method="post" action="addstud.php" enctype="multipart/form-data">
-              <div class="box-body">
+              <div class="box-body col-md-8">
               <div class="form-group">
                   <label for="name" class="col-sm-2 control-label">Name *</label>
 
-                  <div class="col-md-6">
+                  <div class="col-md-8">
                     <input type="text" class="form-control" id="name" name="name" placeholder="Name" required>
                   </div>
                 </div>
 				<div class="form-group">
                   <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
 
-                  <div class="col-md-6">
+                  <div class="col-md-8">
                     <input type="email" class="form-control" id="email" name="email" placeholder="Email">
                   </div>
                 </div>
@@ -125,15 +127,15 @@ header('Location: ../../index.php');
                   <label for="inputEmail3" class="col-sm-2 control-label">Contact *
                 </label>
 
-                  <div class="col-md-6">
+                  <div class="col-md-8">
                     <input type="text" class="form-control" id="contact" name="contact" placeholder="Contact number" required>
                   </div>
                 </div>
-                <div class="form-group">
+             <div class="form-group">
                   <label for="inputPassword3" class="col-sm-2 control-label">Age 
 					*</label>
 
-                  <div class="col-md-2">
+                  <div class="col-md-3">
                     <input type="text" class="form-control" id="age" name="age" placeholder="Age" required>
                   </div>
                 
@@ -142,37 +144,43 @@ header('Location: ../../index.php');
                   <label for="inputPassword3" class="col-sm-2 control-label">Date of Joining 
 					*</label>
 
-                  <div class="col-md-2">
+                  <div class="col-md-3">
                     <input type="text" class="form-control" id="datepicker" name="datepicker" placeholder="Date of joining" required>
                   </div>
-                </div></div>
+                </div>
+			</div>
 				
-				  <div class="form-group">
+			<div class="form-group">
                   <label for="inputPassword3" class="col-sm-2 control-label">Total Fees*
                   </label>
 
-                  <div class="col-md-2">
+                  <div class="col-md-3">
                     <input type="text" class="form-control" id="totalfees" name="totalfees" placeholder="Total fees" required>
                   </div>
                 
 				  <div class="form-group">
                   <label for="inputPassword3" class="col-sm-2 control-label">Fees Paid</label>
 
-                  <div class="col-md-2">
+                  <div class="col-md-3">
                     <input type="text" class="form-control" id="feespaid" name="feespaid" placeholder="Fees paid">
                   </div>
-                </div></div>
+                </div>
+			</div>
                 <div class="form-group">
                   <label for="inputPassword3" class="col-sm-2 control-label">Address 
 					*</label>
 
-                  <div class="col-md-6">
+                  <div class="col-md-8">
                     <textarea class="form-control" id="address" name="address" placeholder="Address" required></textarea>
                   </div>
                 </div>
                 
-                <!-- Image Upload -->
-				<div class="form-group">
+                
+
+                </div>
+				<div class='col-md-4'>
+					<!-- Image Upload -->
+					<div class="form-group">
                         <label class="control-label col-lg-4">Select student Image</label>
                         <div class="col-lg-8">
                             <div class="fileupload fileupload-new" data-provides="fileupload">
@@ -187,14 +195,24 @@ header('Location: ../../index.php');
                             </div>
                         </div>
                     </div>
-
-                              </div>
+				
+              <!-- /.Form Select -->
+					<div class="form-group">
+						<label class="control-label col-lg-4">Batch</label>
+                        
+                <select  class="form-control select2" name='batch' style="width: 100%;" required>
+                  <option value='regular' selected="selected">Regular Batch(Mon-TO-Sat)</option>
+                  <option value='monday'>Monday Batch(Mon-Wed-Fri)</option>
+                  <option value='tuesday'>Tuesday Batch(Tue-Thur-Sat)</option>
+                </select>
+					</div>
+				</div>
               <!-- /.box-body -->
-              <center><div class="box-footer" style="width:50%">
+              <div class="box-footer" style="width:;"><center>
               	<button type="submit" class="btn btn-info pull-right" style="width: 150px">Submit</button>
                 <span><button type="reset" class="btn btn-default pull-left" style="width: 150px">Cancel</button></span>
-                
-              </div></center>
+                </center>
+              </div>
               <!-- /.box-footer -->
             </form>
           </div>
@@ -248,6 +266,8 @@ header('Location: ../../index.php');
 <!-- bootstrap datepicker -->
 <script src="../../plugins/datepicker/bootstrap-datepicker.js"></script>
 
+  <!-- Select2 -->
+<script src="../../plugins/select2/select2.full.min.js"></script>
 <!-- FastClick -->
 <script src="../../plugins/fastclick/fastclick.js"></script>
 <!-- AdminLTE App -->
@@ -255,6 +275,7 @@ header('Location: ../../index.php');
 <!-- page script -->
 <script>
   $(function () {
+  $(".select2").select2();
     $("#example1").DataTable();
     $('#example2').DataTable({
       "paging": true,
