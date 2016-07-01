@@ -1,11 +1,11 @@
 <?php
-<<<<<<< HEAD
+// HEAD
 	 error_reporting(E_ALL ^ E_DEPRECATED);
 	// session_start();
-=======
+
 		  include '../student/connect.php';
 	 //session_start();
->>>>>>> origin/master
+//>>>>>>> origin/master
 	$email=$_SESSION["email"]; ?>
 
 <script src="../../plugins/pace-macosx.js"></script>
@@ -66,15 +66,15 @@ $sql=mysql_query("select * from login_info where email='$email'");
       <ul class="sidebar-menu">
         <li class="header">HEADER</li>
         <!-- Optionally, you can add icons to the links -->
-<<<<<<< HEAD
+
         <li><a href="../student/studentlist.php"><i class="fa fa-link"></i> <span>Students list</span></a></li>
         <li><a href="../student/addstudent.php"><i class="fa fa-link"></i> <span>Add new student</span></a></li>
         <li><a href="../student/attendance.php"><i class="fa fa-link"></i> <span>Attendance</span></a></li>
-=======
+
         <li class='active'><a href="../student/studentlist.php" ><i class="fa fa-link"></i> <span>Students list</span></a></li>
         <li><a href="../student/addstudent.php"><i class="fa fa-link"></i> <span>Add new student</span></a></li>
         
->>>>>>> origin/master
+<!-- >>>>>> origin/master -->
         <li><a href="#"><i class="fa fa-link"></i> <span>Fees information</span></a></li>
         <li class="treeview">
           <a href="#"><i class="fa fa-link"></i> <span>Settings</span> <i class="fa fa-angle-left pull-right"></i></a>

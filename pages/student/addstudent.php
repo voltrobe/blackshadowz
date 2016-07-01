@@ -107,11 +107,11 @@ header('Location: ../../index.php');
             <!-- /.box-header -->
             <!-- form start -->
             <form class="form-horizontal" method="post" action="addstud.php" enctype="multipart/form-data">
-<<<<<<< HEAD
+<!--<<<<<<< HEAD-->
               <div class="box-body col-md-8">
-=======
+<!--=======-->
               <div class="col-md-8">
->>>>>>> origin/master
+<!-- >>>>>>> origin/master-->
               <div class="form-group">
                   <label for="name" class="col-sm-2 control-label">Name *</label>
 
@@ -183,10 +183,10 @@ header('Location: ../../index.php');
                 
 
                 </div>
-=======
+<!--=======-->
              </div>
-				
->>>>>>> origin/master
+				<!--
+>>>>>>> origin/master-->
 				<div class='col-md-4'>
 					<!-- Image Upload -->
 					<div class="form-group">
@@ -219,9 +219,9 @@ header('Location: ../../index.php');
               <!-- /.box-body -->
 <<<<<<< HEAD
               <div class="box-footer" style="width:;"><center>
-=======
+<!--=======-->
               <div class="box-footer" ><center>
->>>>>>> origin/master
+<!-->>>>>>> origin/master-->
               	<button type="submit" class="btn btn-info pull-right" style="width: 150px">Submit</button>
                 <span><button type="reset" class="btn btn-default pull-left" style="width: 150px">Cancel</button></span>
                 </center>

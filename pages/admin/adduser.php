@@ -67,9 +67,6 @@ header('Location: ../../index.php');
   <!--Sidebar-->
   <?php include '../include/sidebar.php';?>
   <!--Sidebar-->
-
-
-
     <!-- /.sidebar -->
   </aside>
 
