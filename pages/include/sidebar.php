@@ -1,6 +1,6 @@
 <?php
-	 error_reporting(E_ALL ^ E_DEPRECATED);
-	 session_start();
+		  include '../student/connect.php';
+	 //session_start();
 	$email=$_SESSION["email"]; ?>
 
 <script src="../../plugins/pace-macosx.js"></script>
@@ -27,7 +27,6 @@
     <section class="sidebar">
 
 <?php
-		  include '../student/connect.php';
 
 $sql=mysql_query("select * from login_info where email='$email'");
              //   echo "select * from hall_garden where user_id='$vender_id'and Name in(select particularname from eventrecord where event_date='$_SESSION[eventdate]') ";
@@ -62,7 +61,7 @@ $sql=mysql_query("select * from login_info where email='$email'");
       <ul class="sidebar-menu">
         <li class="header">HEADER</li>
         <!-- Optionally, you can add icons to the links -->
-        <li><a href="../student/studentlist.php"><i class="fa fa-link"></i> <span>Students list</span></a></li>
+        <li class='active'><a href="../student/studentlist.php" ><i class="fa fa-link"></i> <span>Students list</span></a></li>
         <li><a href="../student/addstudent.php"><i class="fa fa-link"></i> <span>Add new student</span></a></li>
         
         <li><a href="#"><i class="fa fa-link"></i> <span>Fees information</span></a></li>

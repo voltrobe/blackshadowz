@@ -46,7 +46,7 @@ header('Location: ../../index.php');
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
 </head>
-<body class="hold-transition skin-blue sidebar-mini">
+<body class="hold-transition skin-blue sidebar-mini fixed">
 <div class="wrapper">
 
   <header class="main-header">
@@ -107,7 +107,7 @@ header('Location: ../../index.php');
             <!-- /.box-header -->
             <!-- form start -->
             <form class="form-horizontal" method="post" action="addstud.php" enctype="multipart/form-data">
-              <div class="box-body col-md-8">
+              <div class="col-md-8">
               <div class="form-group">
                   <label for="name" class="col-sm-2 control-label">Name *</label>
 
@@ -174,10 +174,8 @@ header('Location: ../../index.php');
                     <textarea class="form-control" id="address" name="address" placeholder="Address" required></textarea>
                   </div>
                 </div>
-                
-                
-
-                </div>
+             </div>
+				
 				<div class='col-md-4'>
 					<!-- Image Upload -->
 					<div class="form-group">
@@ -208,7 +206,7 @@ header('Location: ../../index.php');
 					</div>
 				</div>
               <!-- /.box-body -->
-              <div class="box-footer" style="width:;"><center>
+              <div class="box-footer" ><center>
               	<button type="submit" class="btn btn-info pull-right" style="width: 150px">Submit</button>
                 <span><button type="reset" class="btn btn-default pull-left" style="width: 150px">Cancel</button></span>
                 </center>
