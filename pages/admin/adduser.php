@@ -44,7 +44,7 @@ header('Location: ../../index.php');
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
 </head>
-<body class="hold-transition skin-blue sidebar-mini">
+<body class="hold-transition skin-blue sidebar-mini fixed">
 <div class="wrapper">
 
   <header class="main-header">
@@ -89,55 +89,62 @@ header('Location: ../../index.php');
     <!-- Main content -->
     <section class="content">
       <div class="row">
-        <div class="col-xs-12">
+	  <div class="nav-tabs-custom">
+            <ul class="nav nav-tabs">
+              <li class="active"><a href="#tab_1" data-toggle="tab">Add User Account</a></li>
+              <li><a href="#tab_2" data-toggle="tab">View Admins</a></li>
+              <li class="pull-right"><a href="#" class="text-muted"><i class="fa fa-gear"></i></a></li>
+            </ul>
+            <div class="tab-content">
+              <div class="tab-pane active" id="tab_1">
+                
          <!-- /.box -->
 
-          <div class="box">
-            <div class="box-header">
-              <h3 class="box-title">Add new User Account.</h3>
-            </div>
-            <!-- /.box-header --> 
-            <div class="box-body">
               <div class="box box-info" >
-            <div class="box-header with-border">
-              <h3 class="box-title">Fields with * are mandatory.</h3>
-            </div>
+					<div class="box-header with-border">
+					<h3 class="box-title">Fields with * are mandatory.</h3>
+					</div>
             <!-- /.box-header -->
             <!-- form start -->
             <form class="form-horizontal" method="post" action="processadduser.php" enctype="multipart/form-data">
-              <div class="box-body">
+             
+              <div class="col-md-7"><br/>
               <div class="form-group">
-                  <label for="name" class="col-sm-2 control-label">Name *</label>
+                  <label for="name" class="col-sm-3 control-label">Name *</label>
 
-                  <div class="col-md-6">
+                  <div class="col-md-8">
                     <input type="text" class="form-control" id="name" name="name" placeholder="Name" required>
                   </div>
                 </div>
 				<div class="form-group">
-                  <label for="inputEmail3" class="col-sm-2 control-label">Email *</label>
+                  <label for="inputEmail3" class="col-sm-3 control-label">Email *</label>
 
-                  <div class="col-md-6">
+                  <div class="col-md-8">
                     <input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
-                  </div></div>
+                  </div>
+				</div>
                   
                 <div class="form-group">
-                  <label for="inputEmail3" class="col-sm-2 control-label">Enter Password *</label>
+                  <label for="inputEmail3" class="col-sm-3 control-label">Enter Password *</label>
 
-                  <div class="col-md-6">
-                    <input type="password" class="form-control" id="pass1" name="pass1" placeholder="Enter Password" onblur="checkPass(); return false;" required>
-                  </div></div>
+                  <div class="col-md-8">
+                    <input type="password" class="form-control" id="pass1" name="pass1" placeholder="Enter Password" required>
+                  </div>
+				</div>
 				<div class="form-group">
-                  <label for="inputEmail3" class="col-sm-2 control-label">Confirm Password *</label>
+                  <label for="inputEmail3" class="col-sm-3 control-label">Confirm Password *</label>
 
-                  <div class="col-md-6">
+                  <div class="col-md-8">
                     <input type="password" class="form-control" id="pass2" name="pass2" placeholder="Confirm Password" onkeyup="checkPass(); return false;" required>
                   <span id="confirmMessage" class="confirmMessage"></span>
-                  </div></div>
-
+                  </div>
+				</div>
+				</div>
                 <!-- Image Upload -->
-				<div class="form-group">
-                        <label class="control-label col-lg-4">Select Image</label>
-                        <div class="col-lg-8">
+				
+				<div class="form-group col-md-5">
+                      <label class="control-label col-lg-4">Select Image</label>
+                        <div class="col-md-6">
                             <div class="fileupload fileupload-new" data-provides="fileupload">
                                 <div class="fileupload-new thumbnail" style="width: 200px; height: 150px;"><img src="../../assets/img/demoUpload.jpg" alt="" /></div>
                                 <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
@@ -149,24 +156,86 @@ header('Location: ../../index.php');
                                 </div>
                             </div>
                         </div>
-                    </div>
+                </div>
 
                               
               <!-- /.box-body -->
-              <center><div class="box-footer" style="width:50%">
+              <div class="box-footer" >
               	<button type="submit" id="submit" class="btn btn-info pull-right" style="width: 150px">Submit</button>
-                <span><button type="reset" class="btn btn-default pull-left" style="width: 150px">Cancel</button></span>
+                <span><button type="reset" class="btn btn-default pull-right" style="width: 150px;margin-right:40px;">Cancel</button></span>
                 
-              </div></center>
+              </div>
               <!-- /.box-footer -->
             </form>
           </div>
+          <!-- /.box -->
+        
+        <!-- /.col -->
+              </div>
+              <!-- /.tab-pane -->
+              <div class="tab-pane" id="tab_2">
+                
+				  <div class="box box-success">
+					  <div class="box-header with-border">
+              <h3 class="box-title">List of all the students.</h3>
+					  </div>
+            <!-- /.box-header --> 
+            <div class="box-body">
+              <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                  <th>Sr. No.</th>
+                  <th>Profile</th>
+                  <th>Name</th>
+                  <th>Email</th>
+                </tr>
+                </thead>
+                <tbody>
+                
+                            <?php
+//include 'connect.php';
+$q=mysql_query("select *from login_info");
+$num=mysql_num_rows($q);
+if($num > 0)
+{
+	//$i=1;
+	while($row=mysql_fetch_array($q))
+	{
+		$name=$row['name'];
+		$id=$row['id'];
+			
+        $email=$row['email'];
+        $profile=$row['myfile'];
+		?>
+
+                
+                <tr>
+                  <td><?php echo $id;?></td>
+                  <td><img src="<?php echo $profile;?>" width="60px"/></td>
+                  <td><?php echo $name;?></td>
+                  <td><?php echo $email;?></td>
+                  
+                  		<?php
+		//$i++;
+	}
+		
+}
+?>
+
+                  
+                </tr>
+                </tbody>
+              </table>
             </div>
             <!-- /.box-body -->
           </div>
           <!-- /.box -->
-        </div>
-        <!-- /.col -->
+				
+              </div>
+              <!-- /.tab-pane -->
+             </div>
+            <!-- /.tab-content -->
+          </div>
       </div>
       <!-- /.row -->
     </section>
@@ -270,7 +339,6 @@ function checkPass()
 
     }
 }
-  
 </script>
 </body>
 </html>

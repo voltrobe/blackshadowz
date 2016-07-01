@@ -10,7 +10,11 @@ if(!$db)
 {
 die("unable to select database");
 }
+//session_start();
 
+if(!isset($_SESSION['userid']))
+header('Location: ../../index.php');
+//-------------For checking pass , while changing it ---///
 if(isset($_GET['userid']) || isset($_GET['pass']))
 {
 $userid=$_GET['userid'];
