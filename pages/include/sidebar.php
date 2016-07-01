@@ -1,4 +1,9 @@
-<?php $email=$_SESSION["email"]; ?>
+<?php
+	 error_reporting(E_ALL ^ E_DEPRECATED);
+	// session_start();
+	$email=$_SESSION["email"]; ?>
+
+<script src="../../plugins/pace-macosx.js"></script>
 
 <header>
             <ul class="dropdown-menu">
@@ -35,10 +40,10 @@ $sql=mysql_query("select * from login_info where email='$email'");
 
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel">
-        <div class="pull-left image">
-          <img src="<?php echo $row['myfile']; ?>" class="img-circle" alt="User Image">
+        <div style='width:120px;height:120px;' class="pull-left image">
+          <img style='max-width:90px ;border-radius:30% ;' src="<?php echo $row['myfile']; ?>" class="img-circle" alt="User Image">
         </div>
-        <div class="pull-left info">
+        <div style='margin-left:50px;' class="pull-left info">
           <h4><?php echo $row['name']; ?></h4>
           <!-- Status -->
           <?php
@@ -57,9 +62,9 @@ $sql=mysql_query("select * from login_info where email='$email'");
       <ul class="sidebar-menu">
         <li class="header">HEADER</li>
         <!-- Optionally, you can add icons to the links -->
-        <li><a href="http://localhost/blackshadowz/pages/student/studentlist.php"><i class="fa fa-link"></i> <span>Students list</span></a></li>
-        <li><a href="http://localhost/blackshadowz/pages/student/addstudent.php"><i class="fa fa-link"></i> <span>Add new student</span></a></li>
-        
+        <li><a href="../student/studentlist.php"><i class="fa fa-link"></i> <span>Students list</span></a></li>
+        <li><a href="../student/addstudent.php"><i class="fa fa-link"></i> <span>Add new student</span></a></li>
+        <li><a href="../student/attendance.php"><i class="fa fa-link"></i> <span>Attendance</span></a></li>
         <li><a href="#"><i class="fa fa-link"></i> <span>Fees information</span></a></li>
         <li class="treeview">
           <a href="#"><i class="fa fa-link"></i> <span>Settings</span> <i class="fa fa-angle-left pull-right"></i></a>

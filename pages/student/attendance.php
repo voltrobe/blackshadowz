@@ -1,4 +1,14 @@
 <?php
+	if(isset($_REQUEST['batch']))
+	{
+		$batch=$_POST['batch'];
+	}
+	else
+	{
+		$batch="";
+	}
+?>
+<?php
 session_start();
 if(!isset($_SESSION['userid']))
 header('Location: ../../index.php');
@@ -16,6 +26,10 @@ header('Location: ../../index.php');
     <link rel="stylesheet" href="../../assets/css/theme.css" />
     <link rel="stylesheet" href="../../assets/css/MoneAdmin.css" />
     <link rel="stylesheet" href="../../assets/plugins/Font-Awesome/css/font-awesome.css" />
+    <!--Switch-->
+     <link href="../../assets/css/jquery-ui.css" rel="stylesheet" />
+<link rel="stylesheet" href="../../assets/css/bootstrap-switch.css" />
+
     <!--END GLOBAL STYLES -->
 
     <!-- PAGE LEVEL STYLES -->
@@ -29,8 +43,6 @@ header('Location: ../../index.php');
     <!-- bootstrap datepicker -->
   <link rel="stylesheet" href="../../plugins/datepicker/datepicker3.css">
 
-  <!-- Select2 -->
-  <link rel="stylesheet" href="../../plugins/select2/select2.min.css">
   <!-- DataTables -->
   <link rel="stylesheet" href="../../plugins/datatables/dataTables.bootstrap.css">
   <!-- Theme style -->
@@ -106,116 +118,82 @@ header('Location: ../../index.php');
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form class="form-horizontal" method="post" action="addstud.php" enctype="multipart/form-data">
-              <div class="box-body col-md-8">
+            <form class="form-horizontal" method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) ?>">
+              <div class="box-body">
               <div class="form-group">
-                  <label for="name" class="col-sm-2 control-label">Name *</label>
-
-                  <div class="col-md-8">
-                    <input type="text" class="form-control" id="name" name="name" placeholder="Name" required>
-                  </div>
-                </div>
-				<div class="form-group">
-                  <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
-
-                  <div class="col-md-8">
-                    <input type="email" class="form-control" id="email" name="email" placeholder="Email">
-                  </div>
-                </div>
-
-                <div class="form-group">
-                  <label for="inputEmail3" class="col-sm-2 control-label">Contact *
-                </label>
-
-                  <div class="col-md-8">
-                    <input type="text" class="form-control" id="contact" name="contact" placeholder="Contact number" required>
-                  </div>
-                </div>
-             <div class="form-group">
-                  <label for="inputPassword3" class="col-sm-2 control-label">Age 
-					*</label>
-
-                  <div class="col-md-3">
-                    <input type="text" class="form-control" id="age" name="age" placeholder="Age" required>
-                  </div>
-                
-                
-                <div class="form-group">
-                  <label for="inputPassword3" class="col-sm-2 control-label">Date of Joining 
-					*</label>
-
-                  <div class="col-md-3">
-                    <input type="text" class="form-control" id="datepicker" name="datepicker" placeholder="Date of joining" required>
-                  </div>
-                </div>
-			</div>
-				
-			<div class="form-group">
-                  <label for="inputPassword3" class="col-sm-2 control-label">Total Fees*
-                  </label>
-
-                  <div class="col-md-3">
-                    <input type="text" class="form-control" id="totalfees" name="totalfees" placeholder="Total fees" required>
-                  </div>
-                
-				  <div class="form-group">
-                  <label for="inputPassword3" class="col-sm-2 control-label">Fees Paid</label>
-
-                  <div class="col-md-3">
-                    <input type="text" class="form-control" id="feespaid" name="feespaid" placeholder="Fees paid">
-                  </div>
-                </div>
-			</div>
-                <div class="form-group">
-                  <label for="inputPassword3" class="col-sm-2 control-label">Address 
-					*</label>
-
-                  <div class="col-md-8">
-                    <textarea class="form-control" id="address" name="address" placeholder="Address" required></textarea>
-                  </div>
-                </div>
-                
-                
-
-                </div>
-				<div class='col-md-4'>
-					<!-- Image Upload -->
-					<div class="form-group">
-                        <label class="control-label col-lg-4">Select student Image</label>
-                        <div class="col-lg-8">
-                            <div class="fileupload fileupload-new" data-provides="fileupload">
-                                <div class="fileupload-new thumbnail" style="width: 200px; height: 150px;"><img src="../../assets/img/demoUpload.jpg" alt="" /></div>
-                                <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
-                                <div>
-                                    <span class="btn btn-file btn-primary"><span class="fileupload-new">
-									Select image</span><span class="fileupload-exists">Change</span><input type="file" name="image" id="image" style="right: 0; top: 0" /></span>
-                                    <a href="#" class="btn btn-danger fileupload-exists" data-dismiss="fileupload">
-									Remove</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-				
-              <!-- /.Form Select -->
-					<div class="form-group">
-						<label class="control-label col-lg-4">Batch</label>
-                        
-                <select  class="form-control select2" name='batch' style="width: 100%;" required>
-                  <option value='regular' selected="selected">Regular Batch(Mon-TO-Sat)</option>
-                  <option value='monday'>Monday Batch(Mon-Wed-Fri)</option>
-                  <option value='tuesday'>Tuesday Batch(Tue-Thur-Sat)</option>
-                </select>
+                  <label for="name" class="col-sm-2 control-label">Select Batch *</label>
+                  <div class="col-md-6">
+                    <select id="batch" name="batch" class="form-control" name="Select1">
+                    	<option value="">------ Select Batch -----</option>
+						<option value="regular">Regular</option>
+						<option value="odd">Odd Days</option>
+						<option value="even">Even Days</option>
+					</select>
 					</div>
-				</div>
-              <!-- /.box-body -->
-              <div class="box-footer" style="width:;"><center>
-              	<button type="submit" class="btn btn-info pull-right" style="width: 150px">Submit</button>
-                <span><button type="reset" class="btn btn-default pull-left" style="width: 150px">Cancel</button></span>
-                </center>
+					<button type="submit" class="btn btn-info" style="width: 150px">Submit</button>
+                  
+                </div>
               </div>
+              <!-- /.box-body -->
               <!-- /.box-footer -->
             </form>
-          </div>
+         <hr>
+            <!--Table-->
+            <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Student Name</th>
+                  <th>Batch</th>
+                  <th>Attendance</th>
+                  
+                </tr>
+                </thead>
+                <tbody>
+             <?php
+            
+            	include 'connect.php';
+                $sql=mysql_query("select * from student_info where batch='$batch'");
+             //   echo "select * from hall_garden where user_id='$vender_id'and Name in(select particularname from eventrecord where event_date='$_SESSION[eventdate]') ";
+                $num=mysql_num_rows($sql);
+                if($num > 0){
+                    $i=1;
+                    while($row=mysql_fetch_array($sql))
+                    {
+                        ?>
+                       <tr>
+                <form action="attend.php" id="form1" name="form1" method="post">
+                <td><input type="hidden" name="id" id="id" value="<?php echo $row['id']; ?>" /><?php echo $row['id']; ?></td>
+                <td><input type="hidden" name="name" id="name" value="<?php echo $row['name'];?>" /><?php echo $row['name'];?></td>
+                <td><input  type="hidden" name="batch" id="batch" value="<?php echo $row['batch'];?>" /><?php echo $row['batch'];?></td>
+                <td><div class="form-group">
+                
+                <div class="make-switch" data-on="success" data-off="warning">
+                                <input name="attend" id="attend" type="checkbox" value="P" checked="checked" />
+                                
+                            </div>                
+                
+                
+                </div>
+				</td>
+				<td>
+				<button type="submit" onclick="myfunc()" class="btn btn-info">Save</button>
+				<button type="reset" class="btn btn-default">Cancel</button>
+				</td>
+                </form>
+              </tr><?php
+                      $i++;  
+                    }
+                }
+                
+             ?>
+             
+            </tbody>
+          </table>	
+          				</div>
+
+ </div>
+            
             </div>
             <!-- /.box-body -->
           </div>
@@ -265,9 +243,9 @@ header('Location: ../../index.php');
 <script src="../../plugins/slimScroll/jquery.slimscroll.min.js"></script>
 <!-- bootstrap datepicker -->
 <script src="../../plugins/datepicker/bootstrap-datepicker.js"></script>
-
-  <!-- Select2 -->
-<script src="../../plugins/select2/select2.full.min.js"></script>
+<!--Switch-->
+<script src="../../assets/js/bootstrap-switch.min.js"></script>
+<script src="../../assets/js/jquery-ui.min.js"></script>
 <!-- FastClick -->
 <script src="../../plugins/fastclick/fastclick.js"></script>
 <!-- AdminLTE App -->
@@ -275,7 +253,6 @@ header('Location: ../../index.php');
 <!-- page script -->
 <script>
   $(function () {
-  $(".select2").select2();
     $("#example1").DataTable();
     $('#example2').DataTable({
       "paging": true,
@@ -296,6 +273,11 @@ header('Location: ../../index.php');
     });
 
   });
+</script>
+<script>
+function myfunc() {
+document.getElementById("form1").submit();
+}
 </script>
 </body>
 </html>
