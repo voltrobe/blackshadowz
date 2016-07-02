@@ -200,9 +200,7 @@ header('Location: ../../index.php');
       <!-- /.row -->
     </section>
     <!-- /.content -->
-  </div>
-  <!-- /.content-wrapper -->
-  <footer class="main-footer">
+      <footer class="main-footer">
     <div class="pull-right hidden-xs">
       Developed by <a href="http://vebcrumbs.com" target="_blank"><b>Vebcrumbs.com</b></a>
     </div>
@@ -213,7 +211,9 @@ header('Location: ../../index.php');
   <!-- Add the sidebar's background. This div must be placed
        immediately after the control sidebar -->
   <div class="control-sidebar-bg"></div>
-</div>
+  </div>
+  <!-- /.content-wrapper -->
+
 <!-- ./wrapper -->
 
 <!-- Image upload -->
