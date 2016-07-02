@@ -42,7 +42,9 @@ header('Location: ../../index.php');
   <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
     <!-- bootstrap datepicker -->
   <link rel="stylesheet" href="../../plugins/datepicker/datepicker3.css">
-
+<!-- Select2 -->
+  <link rel="stylesheet" href="../../plugins/select2/select2.min.css">
+  
   <!-- DataTables -->
   <link rel="stylesheet" href="../../plugins/datatables/dataTables.bootstrap.css">
   <!-- Theme style -->
@@ -122,10 +124,9 @@ header('Location: ../../index.php');
               <div class="box-body">
               <div class="form-group">
                   <label for="name" class="col-sm-2 control-label">Select Batch *</label>
-                  <div class="col-md-6">
-                    <select id="batch" name="batch" class="form-control" name="Select1">
-                    	<option value="">------ Select Batch -----</option>
-						<option value="regular">Regular</option>
+                  <div class="col-md-6">                        
+                    <select id="batch" class="form-control select2" name="batch"  name="Select1">
+                    	<option value="regular">Regular</option>
 						<option value="odd">Odd Days</option>
 						<option value="even">Even Days</option>
 					</select>
@@ -164,21 +165,16 @@ header('Location: ../../index.php');
                        <tr>
                 <form action="attend.php" id="form1" name="form1" method="post">
                 <td><input type="hidden" name="id" id="id" value="<?php echo $row['id']; ?>" /><?php echo $row['id']; ?></td>
-                <td><input type="hidden" name="name" id="name" value="<?php echo $row['name'];?>" /><?php echo $row['name'];?></td>
+                <td><input type="hidden" name="name" id="name" value="<?php echo $row['name'];?>"/><a href="viewdetail.php?id=<?php echo $row['id']; ?>"><?php echo $row['name'];?></a></td>
+                <td><input type="hidden" name="contact" id="contact" value="<?php echo $row['contact'];?>" /><?php echo $row['contact'];?></td>
                 <td><input  type="hidden" name="batch" id="batch" value="<?php echo $row['batch'];?>" /><?php echo $row['batch'];?></td>
                 <td><div class="form-group">
                 
                 <div class="make-switch" data-on="success" data-off="warning">
-                                <input name="attend" id="attend" type="checkbox" value="P" checked="checked" />
-                                
-                            </div>                
+                                <input onchange="" name="attend" id="attend" type="checkbox" value="P" checked="checked" />             </div>                
                 
                 
                 </div>
-				</td>
-				<td>
-				<button type="submit" onclick="myfunc()" class="btn btn-info">Save</button>
-				<button type="reset" class="btn btn-default">Cancel</button>
 				</td>
                 </form>
               </tr><?php
@@ -236,6 +232,8 @@ header('Location: ../../index.php');
 <script src="../../plugins/jQuery/jQuery-2.2.0.min.js"></script>
 <!-- Bootstrap 3.3.6 -->
 <script src="../../bootstrap/js/bootstrap.min.js"></script>
+<!-- Select2 -->
+<script src="../../plugins/select2/select2.full.min.js"></script>
 <!-- DataTables -->
 <script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
 <script src="../../plugins/datatables/dataTables.bootstrap.min.js"></script>
@@ -254,6 +252,7 @@ header('Location: ../../index.php');
 <script>
   $(function () {
     $("#example1").DataTable();
+  $(".select2").select2();
     $('#example2').DataTable({
       "paging": true,
       "lengthChange": false,

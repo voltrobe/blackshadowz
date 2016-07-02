@@ -106,7 +106,7 @@ header('Location: ../../index.php');
                 <tbody>
                 
                             <?php
-include 'connect.php';
+//include 'connect.php';
 $q=mysql_query("select *from student_info");
 $num=mysql_num_rows($q);
 if($num > 0)

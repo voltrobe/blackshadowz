@@ -72,7 +72,7 @@ $sql=mysql_query("select * from login_info where email='$email'");
         
 <!-- >>>>>> origin/master -->
         <li><a href="#"><i class="fa fa-link"></i> <span>Fees information</span></a></li>
-        <li  class="treeview <?php active('changepass.php'); ?>">
+        <li  class='treeview <?php active('changepass.php'); active('adduser.php');?>'>
           <a href="#"><i class="fa fa-edit"></i> <span>Settings</span> <i class="fa fa-angle-left pull-right"></i></a>
           <ul class="treeview-menu">
             <li class='<?php active('changepass.php'); ?>'><a href="../admin/changepass.php">Change password</a></li>
