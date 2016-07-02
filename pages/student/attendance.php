@@ -188,7 +188,7 @@ header('Location: ../../index.php');
           </table>	
           				</div>
 
- </div>
+ 			</div>
             
             </div>
             <!-- /.box-body -->
@@ -200,6 +200,8 @@ header('Location: ../../index.php');
       <!-- /.row -->
     </section>
     <!-- /.content -->
+   <!-- </div>-->
+  <!-- /.content-wrapper -->
       <footer class="main-footer">
     <div class="pull-right hidden-xs">
       Developed by <a href="http://vebcrumbs.com" target="_blank"><b>Vebcrumbs.com</b></a>
@@ -212,7 +214,6 @@ header('Location: ../../index.php');
        immediately after the control sidebar -->
   <div class="control-sidebar-bg"></div>
   </div>
-  <!-- /.content-wrapper -->
 
 <!-- ./wrapper -->
 
