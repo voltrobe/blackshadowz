@@ -152,7 +152,7 @@ header('Location: ../../index.php');
                 <tbody>
              <?php
             
-            	include 'connect.php';
+            //	include 'connect.php';
                 $sql=mysql_query("select * from student_info where batch='$batch'");
              //   echo "select * from hall_garden where user_id='$vender_id'and Name in(select particularname from eventrecord where event_date='$_SESSION[eventdate]') ";
                 $num=mysql_num_rows($sql);

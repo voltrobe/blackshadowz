@@ -99,7 +99,7 @@ header('Location: ../../index.php');
 <?php
       $id=$_GET['id'] ;
 	  
-include 'connect.php';
+//include 'connect.php';
 $q=mysql_query("select * from student_info where id=$id");
 $num=mysql_num_rows($q);
 

@@ -2,8 +2,7 @@
 // HEAD
 	 error_reporting(E_ALL ^ E_DEPRECATED);
 	// session_start();
-
-		  include '../student/connect.php';
+  include '../student/connect.php';
 	 //session_start();
 //>>>>>>> origin/master
 	$email=$_SESSION["email"]; ?>
@@ -50,12 +49,12 @@ $sql=mysql_query("select * from login_info where email='$email'");
         <div style='margin-left:50px;' class="pull-left info">
           <h4><?php echo $row['name']; ?></h4>
           <!-- Status -->
-          <?php
+   <?php
                       $i++;  
                     }
                 }
-                
-             ?>
+             //   active();
+	?>
 
         </div>
       </div>
@@ -67,23 +66,21 @@ $sql=mysql_query("select * from login_info where email='$email'");
         <li class="header">HEADER</li>
         <!-- Optionally, you can add icons to the links -->
 
-        <li><a href="../student/studentlist.php"><i class="fa fa-link"></i> <span>Students list</span></a></li>
-        <li><a href="../student/addstudent.php"><i class="fa fa-link"></i> <span>Add new student</span></a></li>
-        <li><a href="../student/attendance.php"><i class="fa fa-link"></i> <span>Attendance</span></a></li>
-
-        <li class='active'><a href="../student/studentlist.php" ><i class="fa fa-link"></i> <span>Students list</span></a></li>
-        <li><a href="../student/addstudent.php"><i class="fa fa-link"></i> <span>Add new student</span></a></li>
+        <li class='<?php active('studentlist.php'); ?>'><a href="../student/studentlist.php"><i class="fa fa-link"></i> <span>Students list</span></a></li>
+        <li class='<?php active('addstudent.php'); ?>'><a href="../student/addstudent.php"><i class="fa fa-link"></i> <span>Add new student</span></a></li>
+        <li class='<?php active('attendance.php'); ?>'><a href="../student/attendance.php"><i class="fa fa-link"></i> <span>Attendance</span></a></li>
         
 <!-- >>>>>> origin/master -->
         <li><a href="#"><i class="fa fa-link"></i> <span>Fees information</span></a></li>
-        <li class="treeview">
-          <a href="#"><i class="fa fa-link"></i> <span>Settings</span> <i class="fa fa-angle-left pull-right"></i></a>
+        <li  class="treeview <?php active('changepass.php'); ?>">
+          <a href="#"><i class="fa fa-edit"></i> <span>Settings</span> <i class="fa fa-angle-left pull-right"></i></a>
           <ul class="treeview-menu">
-            <li><a href="../admin/changepass.php">Change password</a></li>
-            <li><a href="../admin/adduser.php">Add a user account</a></li>
+            <li class='<?php active('changepass.php'); ?>'><a href="../admin/changepass.php">Change password</a></li>
+            <li class='<?php active('adduser.php'); ?>'><a href="../admin/adduser.php">Add a user account</a></li>
           </ul>
+          </li>
           <li><a href="../include/logout.php"><i class="fa fa-link"></i> <span>Logout</span></a></li>
-        </li>
+        
       </ul>
       <!-- /.sidebar-menu -->
     </section>

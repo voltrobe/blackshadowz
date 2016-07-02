@@ -25,4 +25,11 @@ $num=mysql_num_rows($q);
 	echo 1;
  else echo 0;
 }
+function active($pageurl){
+	 $pagename=explode('/',strrev($_SERVER['PHP_SELF']));
+	 $page = strrev($pagename[0]);
+	 //echo $page;
+	 if($pageurl==$page)
+	 	echo "active";
+}
 ?>
