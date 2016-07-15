@@ -2,7 +2,7 @@
 // HEAD
 error_reporting(E_ALL ^ E_DEPRECATED);
 // session_start();
-include '../student/connect.php';
+include_once '../student/connect.php';
 //session_start();
 //>>>>>>> origin/master
 $email = $_SESSION["email"]; ?>
@@ -68,11 +68,11 @@ Developer
             <!-- Optionally, you can add icons to the links -->
 
             <li class='<?php active('studentlist.php'); ?>'><a href="../student/studentlist.php"><i
-                        class="fa fa-link"></i> <span>Students list</span></a></li>
+                        class="fa fa-users"></i> <span>Students list</span></a></li>
             <li class='<?php active('addstudent.php'); ?>'><a href="../student/addstudent.php"><i
-                        class="fa fa-link"></i> <span>Add new student</span></a></li>
+                        class="fa fa-save"></i> <span>Add new student</span></a></li>
             <li class='<?php active('attendance.php'); ?>'><a href="../student/attendance.php"><i
-                        class="fa fa-link"></i> <span>Attendance</span></a></li>
+                        class="fa fa-bullhorn"></i> <span>Attendance</span></a></li>
 
             <!-- >>>>>> origin/master -->
             <li><a href="#"><i class="fa fa-link"></i> <span>Fees information</span></a></li>

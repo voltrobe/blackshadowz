@@ -19,7 +19,7 @@ header('Location: ../../index.php');
       <!-- bootstrap datepicker -->
   <link rel="stylesheet" href="../../plugins/datepicker/datepicker3.css">
   <!-- Ionicons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+  <link rel="stylesheet" href="../../plugins/ionicons.min.css">
   <!-- DataTables -->
   <link rel="stylesheet" href="../../plugins/datatables/dataTables.bootstrap.css">
   <!-- Theme style -->
@@ -51,6 +51,7 @@ header('Location: ../../index.php');
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
       <!-- Sidebar toggle button-->
+      <button class="btn btn-warning larg pull-right btn-lg">hello</button>
     </nav>
   </header>
   <!-- Left side column. contains the logo and sidebar -->
@@ -58,10 +59,8 @@ header('Location: ../../index.php');
     <!-- sidebar: style can be found in sidebar.less -->
 
   <!--Sidebar-->
-  <?php include '../include/sidebar.php';?>
+  <?php include_once '../include/sidebar.php';?>
   <!--Sidebar-->
-
-
 
     <!-- /.sidebar -->
   </aside>

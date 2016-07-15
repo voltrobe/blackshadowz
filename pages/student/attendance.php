@@ -7,8 +7,6 @@
 	{
 		$batch="";
 	}
-?>
-<?php
 session_start();
 if(!isset($_SESSION['userid']))
 header('Location: ../../index.php');
@@ -36,6 +34,7 @@ header('Location: ../../index.php');
 <link rel="stylesheet" href="../../assets/css/bootstrap-fileupload.min.css" />
 <!-- Image upload end -->
 
+<script>var count =0;</script>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
@@ -44,7 +43,10 @@ header('Location: ../../index.php');
   <link rel="stylesheet" href="../../plugins/datepicker/datepicker3.css">
 <!-- Select2 -->
   <link rel="stylesheet" href="../../plugins/select2/select2.min.css">
-  
+      <!-- Font Awesome -->
+  <link rel="stylesheet" href="../../plugins/font-awesome.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="../../plugins/ionicons.min.css">
   <!-- DataTables -->
   <link rel="stylesheet" href="../../plugins/datatables/dataTables.bootstrap.css">
   <!-- Theme style -->
@@ -60,7 +62,7 @@ header('Location: ../../index.php');
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
 </head>
-<body class="hold-transition skin-blue sidebar-mini">
+<body class="hold-transition skin-blue sidebar-mini fixed">
 <div class="wrapper">
 
   <header class="main-header">
@@ -81,10 +83,8 @@ header('Location: ../../index.php');
     <!-- sidebar: style can be found in sidebar.less -->
 
   <!--Sidebar-->
-  <?php include '../include/sidebar.php';?>
+  <?php include_once '../include/sidebar.php';?>
   <!--Sidebar-->
-
-
 
     <!-- /.sidebar -->
   </aside>
@@ -94,11 +94,11 @@ header('Location: ../../index.php');
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Student information.
+        Student Attendance.
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Add new student</li>
+        <li class="active">Attendance</li>
       </ol>
     </section>
 
@@ -110,7 +110,7 @@ header('Location: ../../index.php');
 
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Add new student.</h3>
+              <h3 class="box-title">Attendance.</h3>
             </div>
             <!-- /.box-header --> 
             <div class="box-body">
@@ -145,6 +145,7 @@ header('Location: ../../index.php');
                 <tr>
                   <th>ID</th>
                   <th>Student Name</th>
+                  <th>Phone No.</th>
                   <th>Batch</th>
                   <th>Attendance</th>
                   
@@ -155,7 +156,7 @@ header('Location: ../../index.php');
             
             //	include 'connect.php';
                 $sql=mysql_query("select * from student_info where batch='$batch'");
-             //   echo "select * from hall_garden where user_id='$vender_id'and Name in(select particularname from eventrecord where event_date='$_SESSION[eventdate]') ";
+             //   echo "select * from hall_garden where user_id='$vender_id' and Name in(select particularname from eventrecord where event_date='$_SESSION[eventdate]') ";
                 $num=mysql_num_rows($sql);
                 if($num > 0){
                     $i=1;
@@ -165,13 +166,13 @@ header('Location: ../../index.php');
                        <tr>
                 <form action="attend.php" id="form1" name="form1" method="post">
                 <td><input type="hidden" name="id" id="id" value="<?php echo $row['id']; ?>" /><?php echo $row['id']; ?></td>
-                <td><input type="hidden" name="name" id="name" value="<?php echo $row['name'];?>"/><a href="viewdetail.php?id=<?php echo $row['id']; ?>"><?php echo $row['name'];?></a></td>
-                <td><input type="hidden" name="contact" id="contact" value="<?php echo $row['contact'];?>" /><?php echo $row['contact'];?></td>
-                <td><input  type="hidden" name="batch" id="batch" value="<?php echo $row['batch'];?>" /><?php echo $row['batch'];?></td>
+                <td><a href="viewdetail.php?id=<?php echo $row['id']; ?>"><?php echo $row['name'];?></a></td>
+                <td><?php echo $row['contact'];?></td>
+                <td><?php echo $row['batch'];?></td>
                 <td><div class="form-group">
                 
-                <div class="make-switch" data-on="success" data-off="warning">
-                                <input onchange="" name="attend" id="attend" type="checkbox" value="P" checked="checked" />             </div>                
+                <div onchange="slidercount('<?php echo $row['id']; ?>',event);" id="<?php echo $row['id']; ?>" rel="" class="make-switch" data-on="success" data-off="warning">
+                                <input  name="attend" id="attend" type="checkbox"  />             </div>                
                 
                 
                 </div>
@@ -180,16 +181,12 @@ header('Location: ../../index.php');
               </tr><?php
                       $i++;  
                     }
-                }
-                
-             ?>
-             
+                } 
+             ?>             
             </tbody>
           </table>	
           				</div>
-
- 			</div>
-            
+ 			</div>          
             </div>
             <!-- /.box-body -->
           </div>
@@ -217,18 +214,6 @@ header('Location: ../../index.php');
 
 <!-- ./wrapper -->
 
-<!-- Image upload -->
-    <script src="../../assets/plugins/jquery-2.0.3.min.js"></script>
-     <script src="../../assets/plugins/bootstrap/js/bootstrap.min.js"></script>
-    <script src="../../assets/plugins/modernizr-2.6.2-respond-1.1.0.min.js"></script>
-    <!-- END GLOBAL SCRIPTS -->
-
-         <!-- PAGE LEVEL SCRIPTS -->
-    <script src="../../assets/plugins/jasny/js/bootstrap-fileupload.js"></script>
-         <!-- END PAGE LEVEL SCRIPTS -->
-
-<!-- Image upload -->
-
 <!-- jQuery 2.2.0 -->
 <script src="../../plugins/jQuery/jQuery-2.2.0.min.js"></script>
 <!-- Bootstrap 3.3.6 -->
@@ -243,15 +228,33 @@ header('Location: ../../index.php');
 <!-- bootstrap datepicker -->
 <script src="../../plugins/datepicker/bootstrap-datepicker.js"></script>
 <!--Switch-->
-<script src="../../assets/js/bootstrap-switch.min.js"></script>
+<script src="../../assets/js/bootstrap-switch.js"></script>
 <script src="../../assets/js/jquery-ui.min.js"></script>
 <!-- FastClick -->
 <script src="../../plugins/fastclick/fastclick.js"></script>
 <!-- AdminLTE App -->
 <script src="../../dist/js/app.min.js"></script>
+
+
+<!-- Image upload --><!--
+     <script src="../../assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../../assets/plugins/modernizr-2.6.2-respond-1.1.0.min.js"></script>-->
+    <!-- END GLOBAL SCRIPTS -->
+
+         <!-- PAGE LEVEL SCRIPTS -->
+   <!-- <script src="../../assets/plugins/jasny/js/bootstrap-fileupload.js"></script>
+   -->      <!-- END PAGE LEVEL SCRIPTS -->
+
+<!-- Image upload -->
+
 <!-- page script -->
 <script>
   $(function () {
+  	//Date picker
+    $('#datepicker').datepicker({
+      autoclose: true
+    });
+  	
     $("#example1").DataTable();
   $(".select2").select2();
     $('#example2').DataTable({
@@ -264,19 +267,28 @@ header('Location: ../../index.php');
     });
   });
 </script>
-<script>
-  $(function () {
 
-    //Date picker
-    $('#datepicker').datepicker({
-      autoclose: true
-    });
-
-  });
-</script>
 <script>
+var count=0;
+var stat=false;  // true for present
 function myfunc() {
 document.getElementById("form1").submit();
+}
+function slidercount(id,eve){
+		if(count%2==0){
+			if(!stat ){
+	alert('present');
+	stat=true;
+	$('#'+id).attr('rel','present');
+	}
+	else{
+	alert('absent');	
+	stat=false;
+	$('#'+id).attr('rel','absent');
+	}
+   }
+count+=1;
+//alert(id +" "+);
 }
 </script>
 </body>

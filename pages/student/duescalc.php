@@ -11,6 +11,5 @@
 
 	mysql_query("update student_info set feespaid=$finalamt where id=$id ");
 	echo $finalamt."|".$dues;
-
 }
 ?>

@@ -26,7 +26,11 @@ header('Location: ../../index.php');
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
   <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
-    <!-- bootstrap datepicker -->
+    <!-- Font Awesome -->
+  <link rel="stylesheet" href="../../plugins/font-awesome.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="../../plugins/ionicons.min.css">
+      <!-- bootstrap datepicker -->
   <link rel="stylesheet" href="../../plugins/datepicker/datepicker3.css">
 
   <!-- Select2 -->
@@ -67,10 +71,8 @@ header('Location: ../../index.php');
     <!-- sidebar: style can be found in sidebar.less -->
 
   <!--Sidebar-->
-  <?php include '../include/sidebar.php';?>
+  <?php include_once '../include/sidebar.php';?>
   <!--Sidebar-->
-
-
 
     <!-- /.sidebar -->
   </aside>
@@ -253,18 +255,6 @@ header('Location: ../../index.php');
 </div>
 <!-- ./wrapper -->
 
-<!-- Image upload -->
-    <script src="../../assets/plugins/jquery-2.0.3.min.js"></script>
-     <script src="../../assets/plugins/bootstrap/js/bootstrap.min.js"></script>
-    <script src="../../assets/plugins/modernizr-2.6.2-respond-1.1.0.min.js"></script>
-    <!-- END GLOBAL SCRIPTS -->
-
-         <!-- PAGE LEVEL SCRIPTS -->
-    <script src="../../assets/plugins/jasny/js/bootstrap-fileupload.js"></script>
-         <!-- END PAGE LEVEL SCRIPTS -->
-
-<!-- Image upload -->
-
 <!-- jQuery 2.2.0 -->
 <script src="../../plugins/jQuery/jQuery-2.2.0.min.js"></script>
 <!-- Bootstrap 3.3.6 -->
@@ -283,6 +273,18 @@ header('Location: ../../index.php');
 <script src="../../plugins/fastclick/fastclick.js"></script>
 <!-- AdminLTE App -->
 <script src="../../dist/js/app.min.js"></script>
+
+<!-- Image upload --><!--
+     <script src="../../assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../../assets/plugins/modernizr-2.6.2-respond-1.1.0.min.js"></script>-->
+    <!-- END GLOBAL SCRIPTS -->
+
+         <!-- PAGE LEVEL SCRIPTS --><!--
+    <script src="../../assets/plugins/jasny/js/bootstrap-fileupload.js"></script>-->
+         <!-- END PAGE LEVEL SCRIPTS -->
+
+<!-- Image upload -->
+
 <!-- page script -->
 <script>
   $(function () {
