@@ -171,7 +171,7 @@ header('Location: ../../index.php');
                 <td><?php echo $row['batch'];?></td>
                 <td><div class="form-group">
                 
-                <div onchange="slidercount('<?php echo $row['id']; ?>',event);" id="<?php echo $row['id']; ?>" rel="" class="make-switch" data-on="success" data-off="warning">
+                <div onchange="slidercount('<?php echo $row['id']; ?>',event);" id="<?php echo $row['id']; ?>" rel="absent" data-count="0" class="make-switch" data-on="success" data-off="warning">
                                 <input  name="attend" id="attend" type="checkbox"  />             </div>                
                 
                 
@@ -275,19 +275,20 @@ function myfunc() {
 document.getElementById("form1").submit();
 }
 function slidercount(id,eve){
-		if(count%2==0){
-			if(!stat ){
+		if($('#'+id).attr('data-count')%2==0){
+			if($('#'+id).attr('rel')=="absent"){
 	alert('present');
-	stat=true;
+	//stat=true;
 	$('#'+id).attr('rel','present');
 	}
 	else{
 	alert('absent');	
-	stat=false;
+	//stat=false;
 	$('#'+id).attr('rel','absent');
 	}
    }
-count+=1;
+   count+=1;
+$('#'+id).attr('data-count',count);
 //alert(id +" "+);
 }
 </script>
