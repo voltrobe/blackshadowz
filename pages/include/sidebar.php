@@ -1,8 +1,7 @@
 <?php
 // HEAD
 error_reporting(E_ALL ^ E_DEPRECATED);
-// session_start();
-include_once '../student/connect.php';
+//include_once '../include/connect.php';
 //session_start();
 //>>>>>>> origin/master
 $email = $_SESSION["email"]; ?>

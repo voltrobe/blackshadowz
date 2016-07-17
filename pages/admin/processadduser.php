@@ -61,8 +61,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
                       //  $decorname=$_POST['them_name'];
 					//	mysql_query("insert into decoration (user_id,path,price,dcoration_name) values('".$usr_id."','".$newname."','".$price."','".$decorname."')");
 
-
-
 }
 }
 }

@@ -1,5 +1,5 @@
 <?php
-session_start();
+require_once('../include/connect.php');
 if(!isset($_SESSION['userid']))
 header('Location: ../../index.php');
 ?>
@@ -9,21 +9,23 @@ header('Location: ../../index.php');
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 2 | Data Tables</title>
+  <title>StudentList | BlackkShadowzzz</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
   <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-      <!-- bootstrap datepicker -->
+        <!-- bootstrap datepicker -->
   <link rel="stylesheet" href="../../plugins/datepicker/datepicker3.css">
-  <!-- Ionicons -->
-  <link rel="stylesheet" href="../../plugins/ionicons.min.css">
   <!-- DataTables -->
   <link rel="stylesheet" href="../../plugins/datatables/dataTables.bootstrap.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="../../dist/css/AdminLTE.min.css">
+  
+    <link rel="stylesheet" href="../../assets/plugins/Font-Awesome/css/font-awesome.css" />
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="../../plugins/ionicons.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="../../plugins/font-awesome.min.css">
     <!-- Popup window -->
  <link type="text/css" rel="stylesheet" href="../popup/popModal.css">
   <!-- AdminLTE Skins. Choose a skin from the css/skins
@@ -90,15 +92,14 @@ header('Location: ../../index.php');
             </div>
             <!-- /.box-header --> 
             <div class="box-body">
-              <table id="example1" class="table table-bordered table-striped">
+              <table id="example1" class="table table-bordered table-striped text-center">
                 <thead>
                 <tr>
-                  <th>Sr. No.</th>
+                  <th>Batch Day</th>
                   <th>Student Name</th>
                   <th>Date of joining</th>
                   <th>Contact info</th>
-                  <th>Total Fees</th>
-                  <th>Fees paid</th>
+                  <th class='text-center'>Fees paid / Total</th>
                   <th>Dues</th>
                 </tr>
                 </thead>
@@ -106,7 +107,7 @@ header('Location: ../../index.php');
                 
                             <?php
 //include 'connect.php';
-$q=mysql_query("select *from student_info");
+$q=mysql_query("select *from student_info order by doj desc");
 $num=mysql_num_rows($q);
 if($num > 0)
 {
@@ -115,7 +116,7 @@ if($num > 0)
 	{
 		$name=$row['name'];
 		$id=$row['id'];
-		
+		$batch=$row['batch'];
     	$doj=$row['doj'];
 		$contact=$row['contact'];
 		
@@ -131,12 +132,11 @@ if($num > 0)
 
                 
                 <tr>
-                  <td><?php echo $i;?></td>
-                  <td><a href="viewdetail.php?id=<?php echo $id;?>"><span id="name"><?php echo $name;?></span></a></td>
+                  <td><?php echo $batch;?></td>
+                  <td><a href="viewdetail.php?id=<?php echo $id;?>"><span id="name"><?php echo ucfirst($name);?></span></a></td>
                   <td><?php echo $doj;?></td>
                   <td><?php echo $contact;?></td>
-                  <td><?php echo $totalfees;?></td>
-                  <td><?php echo $feespaid;?></td>
+                  <td class="text-center"><?php echo $feespaid." / ".$totalfees;?></td>
                   <td><?php echo $dues;?></td>
                   
                   		<?php

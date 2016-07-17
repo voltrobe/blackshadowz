@@ -1,5 +1,6 @@
 <?php
-session_start();
+//session_start();
+require_once('../include/connect.php');
 if(!isset($_SESSION['userid']))
 header('Location: ../../index.php');
 else
@@ -14,11 +15,13 @@ else
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 2 | Data Tables</title>
+  <title>Change Password | BlackkShadowzzz</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
   <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
+  
+    <link rel="stylesheet" href="../../assets/plugins/Font-Awesome/css/font-awesome.css" />
       <!-- Font Awesome -->
   <link rel="stylesheet" href="../../plugins/font-awesome.min.css">
   <!-- Ionicons -->
@@ -106,7 +109,7 @@ else
               
                 <div class="form-group">
                   <label for="exampleInputPassword1">Enter New Password</label>
-                  <input type="password" class="form-control" id="pass1" name="pass1" placeholder="Enter New Password" onblur="checkPass(); return false;">
+                  <input type="password" class="form-control" id="pass1" name="pass1" placeholder="Enter New Password" >
                 </div>
                 <div class="form-group">
                   <label for="exampleInputPassword1">Retype your New Password</label>
@@ -167,8 +170,8 @@ else
 function passcheck(userid,pass)
 {
 //alert(userid+" "+pass);
-$.get('../student/connect.php?userid='+userid+'&pass='+pass,function(data){
-//alert(data)
+$.get('../include/connect.php?userid='+userid+'&pass='+pass,function(data){
+//alert(data) alerts incoming XHr-ajax data
 if(data==0)
 {
 $('#error').html("<font style='color:red;'>Please Enter Correct Password</font>");

@@ -7,7 +7,7 @@
 	{
 		$batch="";
 	}
-session_start();
+require_once('../include/connect.php');
 if(!isset($_SESSION['userid']))
 header('Location: ../../index.php');
 ?>
@@ -16,29 +16,33 @@ header('Location: ../../index.php');
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 2 | Data Tables</title>
+  <title>Attendance | BlackkShadowzzz</title>
   <!-- Image upload -->
   <!-- GLOBAL STYLES -->
-    <link rel="stylesheet" href="../../assets/plugins/bootstrap/css/bootstrap.css" />
+    <!-- Bootstrap 3.3.6 -->
+  <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
+ 
     <link rel="stylesheet" href="../../assets/css/main.css" />
     <link rel="stylesheet" href="../../assets/css/theme.css" />
     <link rel="stylesheet" href="../../assets/css/MoneAdmin.css" />
     <link rel="stylesheet" href="../../assets/plugins/Font-Awesome/css/font-awesome.css" />
     <!--Switch-->
-     <link href="../../assets/css/jquery-ui.css" rel="stylesheet" />
-<link rel="stylesheet" href="../../assets/css/bootstrap-switch.css" />
+    <link href="../../assets/css/jquery-ui.css" rel="stylesheet" />  
+<link rel="stylesheet" href="../../plugins/bootstrap-switch.css" />
 
+    <script src="../../plugins/bootstrap-toggle.min.css"></script>
+    <script src="../../plugins/highlight.css"></script>
     <!--END GLOBAL STYLES -->
 
-    <!-- PAGE LEVEL STYLES -->
-<link rel="stylesheet" href="../../assets/css/bootstrap-fileupload.min.css" />
+    <!-- PAGE LEVEL STYLES --><!--
+<link rel="stylesheet" href="../../assets/css/bootstrap-fileupload.min.css" />-->
 <!-- Image upload end -->
 
 <script>var count =0;</script>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-  <!-- Bootstrap 3.3.6 -->
-  <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
+ <!-- <!-- Bootstrap 3.3.6 
+  <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">-->
     <!-- bootstrap datepicker -->
   <link rel="stylesheet" href="../../plugins/datepicker/datepicker3.css">
 <!-- Select2 -->
@@ -126,9 +130,10 @@ header('Location: ../../index.php');
                   <label for="name" class="col-sm-2 control-label">Select Batch *</label>
                   <div class="col-md-6">                        
                     <select id="batch" class="form-control select2" name="batch"  name="Select1">
-                    	<option value="regular">Regular</option>
-						<option value="odd">Odd Days</option>
-						<option value="even">Even Days</option>
+                    	<option value="regular">Regular Batch</option>
+						<option value="monday">Monday Batch </option>
+						<option value="tuesday">Tuesday Batch</option>
+						<option value="weekend">Weekend Batch</option>
 					</select>
 					</div>
 					<button type="submit" class="btn btn-info" style="width: 150px">Submit</button>
@@ -143,10 +148,10 @@ header('Location: ../../index.php');
             <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                  <th>ID</th>
                   <th>Student Name</th>
                   <th>Phone No.</th>
                   <th>Batch</th>
+                  <th>Time/Date</th>
                   <th>Attendance</th>
                   
                 </tr>
@@ -156,28 +161,24 @@ header('Location: ../../index.php');
             
             //	include 'connect.php';
                 $sql=mysql_query("select * from student_info where batch='$batch'");
-             //   echo "select * from hall_garden where user_id='$vender_id' and Name in(select particularname from eventrecord where event_date='$_SESSION[eventdate]') ";
                 $num=mysql_num_rows($sql);
                 if($num > 0){
                     $i=1;
                     while($row=mysql_fetch_array($sql))
-                    {
+                   { $qry=mysql_query("select attenddate from attendance where studid=".$row['id']."");
+                    	$sqlrow=mysql_fetch_row($qry);
                         ?>
                        <tr>
-                <form action="attend.php" id="form1" name="form1" method="post">
-                <td><input type="hidden" name="id" id="id" value="<?php echo $row['id']; ?>" /><?php echo $row['id']; ?></td>
                 <td><a href="viewdetail.php?id=<?php echo $row['id']; ?>"><?php echo $row['name'];?></a></td>
                 <td><?php echo $row['contact'];?></td>
                 <td><?php echo $row['batch'];?></td>
+            	<td><?php echo date('D,j M Y',$sqlrow[0]); ?></td>
                 <td><div class="form-group">
-                
-                <div onchange="slidercount('<?php echo $row['id']; ?>',event);" id="<?php echo $row['id']; ?>" rel="absent" data-count="0" class="make-switch" data-on="success" data-off="warning">
-                                <input  name="attend" id="attend" type="checkbox"  />             </div>                
-                
-                
-                </div>
+                  <div class="make-switch">
+    <input type="checkbox" checked="true" id="<?php echo $row['id'] ?>" onchange="slidercount('<?php echo $row['id'] ?>')" data-off-text="Absent"  name="<?php echo $row['id'] ?>" data-on-text="Present" data-on-color="success" data-off-color="warning"  class="probeProbe" />
+</div>
+                                </div>        		
 				</td>
-                </form>
               </tr><?php
                       $i++;  
                     }
@@ -185,6 +186,7 @@ header('Location: ../../index.php');
              ?>             
             </tbody>
           </table>	
+          
           				</div>
  			</div>          
             </div>
@@ -228,33 +230,39 @@ header('Location: ../../index.php');
 <!-- bootstrap datepicker -->
 <script src="../../plugins/datepicker/bootstrap-datepicker.js"></script>
 <!--Switch-->
-<script src="../../assets/js/bootstrap-switch.js"></script>
-<script src="../../assets/js/jquery-ui.min.js"></script>
+<script src="../../plugins/bootstrap-switch.js"></script>
+<!--
+<script src="../../assets/js/jquery-ui.min.js"></script>-->
 <!-- FastClick -->
 <script src="../../plugins/fastclick/fastclick.js"></script>
 <!-- AdminLTE App -->
 <script src="../../dist/js/app.min.js"></script>
 
-
-<!-- Image upload --><!--
-     <script src="../../assets/plugins/bootstrap/js/bootstrap.min.js"></script>
-    <script src="../../assets/plugins/modernizr-2.6.2-respond-1.1.0.min.js"></script>-->
-    <!-- END GLOBAL SCRIPTS -->
-
-         <!-- PAGE LEVEL SCRIPTS -->
-   <!-- <script src="../../assets/plugins/jasny/js/bootstrap-fileupload.js"></script>
-   -->      <!-- END PAGE LEVEL SCRIPTS -->
-
-<!-- Image upload -->
-
+<!--
+    <script src="../../plugins/bootstrap-toggle.min.js"></script>
+    <script src="../../plugins/highlight.min.js"></script>-->
 <!-- page script -->
 <script>
+$.ajaxSetup({ cache: false });
   $(function () {
-  	//Date picker
+ $('.probeProbe').bootstrapSwitch('state', false);
+//$('#CheckBoxValue').text($("#TheCheckBox").bootstrapSwitch('state'));
+
+	 var fc=document.querySelectorAll('.probeProbe');
+	var fcid, i; 
+	for(i=0;i<=fc.length;i++){
+		fcid=fc[i].getAttribute('name');
+		//alert(fcid);
+		$.get("processattend.php?init="+fcid ,function(data){ 
+		//alert(data);
+ 	$('input[name="'+fcid+'"]').bootstrapSwitch('state', data);
+		});
+	}
+
     $('#datepicker').datepicker({
       autoclose: true
     });
-  	
+ 
     $("#example1").DataTable();
   $(".select2").select2();
     $('#example2').DataTable({
@@ -267,30 +275,31 @@ header('Location: ../../index.php');
     });
   });
 </script>
+<script>
 
+
+</script>
 <script>
 var count=0;
 var stat=false;  // true for present
-function myfunc() {
-document.getElementById("form1").submit();
-}
-function slidercount(id,eve){
-		if($('#'+id).attr('data-count')%2==0){
-			if($('#'+id).attr('rel')=="absent"){
-	alert('present');
-	//stat=true;
+
+function slidercount(idy){
+	var state=($('input#'+idy).bootstrapSwitch('state'))? "present":"absent";
+	//alert(state);
+/*			if(parseInt($('#'+id).attr('data-count'))%2==0){
+			if($('#'+id).attr('rel').includes("absent")){
 	$('#'+id).attr('rel','present');
-	}
+	}}
 	else{
-	alert('absent');	
-	//stat=false;
 	$('#'+id).attr('rel','absent');
 	}
-   }
-   count+=1;
+ count=parseInt($('#'+id).attr('data-count'))+1;
 $('#'+id).attr('data-count',count);
-//alert(id +" "+);
+*/
+	$.get("processattend.php?id="+idy+"&attend="+state ,function(){
+		});
 }
 </script>
 </body>
 </html>
+<?php /* DNS --103.57.80.19 */?>

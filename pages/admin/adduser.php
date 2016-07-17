@@ -1,5 +1,6 @@
 <?php
-session_start();
+
+require_once('../include/connect.php');
 if(!isset($_SESSION['userid']))
 header('Location: ../../index.php');
 ?>
@@ -8,7 +9,7 @@ header('Location: ../../index.php');
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 2 | Data Tables</title>
+  <title>Add Admin Account | BlackkShadowzzz</title>
   <!-- Image upload -->
   <!-- GLOBAL STYLES -->
     <link rel="stylesheet" href="../../assets/plugins/bootstrap/css/bootstrap.css" />

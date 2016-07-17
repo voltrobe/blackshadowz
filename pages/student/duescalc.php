@@ -1,5 +1,5 @@
 <?php
-	require_once('connect.php');
+require_once('../include/connect.php');
 	if(isset($_GET['studid'])){
 	$id=$_GET['studid'];
 	$q=mysql_query("select * from student_info where id=$id ");

@@ -1,5 +1,5 @@
 <?php
-session_start();
+require_once('../include/connect.php');
 if(!isset($_SESSION['userid']))
 header('Location: ../../index.php');
 ?>
@@ -8,7 +8,7 @@ header('Location: ../../index.php');
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 2 | Data Tables</title>
+  <title>Add Student | BlackkShadowzzz</title>
   <!-- Image upload -->
   <!-- GLOBAL STYLES -->
     <link rel="stylesheet" href="../../assets/plugins/bootstrap/css/bootstrap.css" />
@@ -17,7 +17,9 @@ header('Location: ../../index.php');
     <link rel="stylesheet" href="../../assets/css/MoneAdmin.css" />
     <link rel="stylesheet" href="../../assets/plugins/Font-Awesome/css/font-awesome.css" />
     <!--END GLOBAL STYLES -->
-
+ <!--Switch-->
+     <link href="../../assets/css/jquery-ui.css" rel="stylesheet" />
+<link rel="stylesheet" href="../../assets/css/bootstrap-switch.css" />
     <!-- PAGE LEVEL STYLES -->
 <link rel="stylesheet" href="../../assets/css/bootstrap-fileupload.min.css" />
 <!-- Image upload end -->
@@ -108,7 +110,7 @@ header('Location: ../../index.php');
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form class="form-horizontal" method="post" action="addstud.php" enctype="multipart/form-data">
+            <form class="form-horizontal" method="post" action="processaddstud.php" enctype="multipart/form-data">
 <!--<<<<<<< HEAD-->
               <div class="box-body col-md-8">
 <!--=======-->
@@ -137,6 +139,24 @@ header('Location: ../../index.php');
                     <input type="text" class="form-control" id="contact" name="contact" placeholder="Contact number" required>
                   </div>
                 </div>
+            <div class="form-group">
+                  <label for="inputPassword3" class="col-sm-3 control-label">Gender 
+					*</label>
+
+                  <div class="col-md-3">
+                 Male: <input type="radio"  id="gender" value="male" name="gender"  required> Female: <input type="radio"  id="gender" name="gender" value="female"  required>
+           
+          </div>          
+                
+                <div class="form-group">
+                  <label for="inputPassword3" class="col-sm-2 control-label">Occupation 
+					*</label>
+
+                  <div class="col-md-3">
+                    <input type="text" class="form-control" id="occupation" name="occupation" placeholder="occupation" required>
+                  </div>
+                </div>
+			</div>
              <div class="form-group">
                   <label for="inputPassword3" class="col-sm-3 control-label">Age 
 					*</label>
@@ -215,6 +235,7 @@ header('Location: ../../index.php');
                   <option value='regular' selected="selected">Regular Batch(Mon-TO-Sat)</option>
                   <option value='monday'>Monday Batch(Mon-Wed-Fri)</option>
                   <option value='tuesday'>Tuesday Batch(Tue-Thur-Sat)</option>
+                  <option value='weekend'>Weekends Batch(Sat & Sund)</option>
                 </select>
 					</div>
 				</div>
@@ -267,6 +288,8 @@ header('Location: ../../index.php');
 <!-- bootstrap datepicker -->
 <script src="../../plugins/datepicker/bootstrap-datepicker.js"></script>
 
+<!--Switch-->
+<script src="../../assets/js/bootstrap-switch.min.js"></script>
   <!-- Select2 -->
 <script src="../../plugins/select2/select2.full.min.js"></script>
 <!-- FastClick -->
