@@ -2,10 +2,11 @@
 	if(isset($_REQUEST['batch']))
 	{
 		$batch=$_POST['batch'];
+		$_SESSION['batchselect']=$batch;
 	}
 	else
 	{
-		$batch="";
+		$_SESSION['batchselect']=$batch="";
 	}
 require_once('../include/connect.php');
 if(!isset($_SESSION['userid']))
@@ -66,7 +67,7 @@ header('Location: ../../index.php');
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
 </head>
-<body class="hold-transition skin-blue sidebar-mini fixed">
+<body onload="" class="hold-transition skin-blue sidebar-mini fixed">
 <div class="wrapper">
 
   <header class="main-header">
@@ -130,6 +131,7 @@ header('Location: ../../index.php');
                   <label for="name" class="col-sm-2 control-label">Select Batch *</label>
                   <div class="col-md-6">                        
                     <select id="batch" class="form-control select2" name="batch"  name="Select1">
+                    	<option value="">Select a Batch</option>
                     	<option value="regular">Regular Batch</option>
 						<option value="monday">Monday Batch </option>
 						<option value="tuesday">Tuesday Batch</option>
@@ -169,15 +171,15 @@ header('Location: ../../index.php');
                     	$sqlrow=mysql_fetch_row($qry);
                         ?>
                        <tr>
-                <td><a href="viewdetail.php?id=<?php echo $row['id']; ?>"><?php echo $row['name'];?></a></td>
+                <td><a href="viewdetail.php?id=<?php echo $row['id']; ?>"><?php echo ucwords($row['name']);?></a></td>
                 <td><?php echo $row['contact'];?></td>
-                <td><?php echo $row['batch'];?></td>
-            	<td><?php echo date('D,j M Y',$sqlrow[0]); ?></td>
-                <td><div class="form-group">
+                <td><?php echo ucwords($row['batch']);?></td>
+            	<td><?php echo date('D ,j M Y',$sqlrow[0]); ?></td>
+                <td>
                   <div class="make-switch">
-    <input type="checkbox" checked="true" id="<?php echo $row['id'] ?>" onchange="slidercount('<?php echo $row['id'] ?>')" data-off-text="Absent"  name="<?php echo $row['id'] ?>" data-on-text="Present" data-on-color="success" data-off-color="warning"  class="probeProbe" />
+    <input type="checkbox" onfocus="slidercount('<?php echo $row['id'] ?>','<?php echo $row['name'] ?>',this)" data-off-text="Absent"  data-count="<?php echo $row['id'] ?>" data-on-text="Present" data-on-color="success" data-off-color="warning"  class="probeProbe" />
 </div>
-                                </div>        		
+      		
 				</td>
               </tr><?php
                       $i++;  
@@ -185,8 +187,7 @@ header('Location: ../../index.php');
                 } 
              ?>             
             </tbody>
-          </table>	
-          
+          </table>         
           				</div>
  			</div>          
             </div>
@@ -244,21 +245,24 @@ header('Location: ../../index.php');
 <!-- page script -->
 <script>
 $.ajaxSetup({ cache: false });
+var loly,nami ;
+ 	//$('.probeProbe').bootstrapSwitch();
+// var fc=document.querySelectorAll('.probeProbe');
+$(".probeProbe").each(function(indexi,element) {
+	nami = $(this).attr('data-count');
+		console.log(indexi);
+	        window.setTimeout(ajaxyi(nami,loly),90);
+});
+function ajaxyi(namid,loly){
+	$.get("processattend.php?init="+namid ,function(data){
+		loly=(data==1)?true:false;
+		console.log(namid);
+  		$("input[data-count='"+namid+"']").bootstrapSwitch('state',loly );
+  		console.log(loly);
+  		});
+}
+
   $(function () {
- $('.probeProbe').bootstrapSwitch('state', false);
-//$('#CheckBoxValue').text($("#TheCheckBox").bootstrapSwitch('state'));
-
-	 var fc=document.querySelectorAll('.probeProbe');
-	var fcid, i; 
-	for(i=0;i<=fc.length;i++){
-		fcid=fc[i].getAttribute('name');
-		//alert(fcid);
-		$.get("processattend.php?init="+fcid ,function(data){ 
-		//alert(data);
- 	$('input[name="'+fcid+'"]').bootstrapSwitch('state', data);
-		});
-	}
-
     $('#datepicker').datepicker({
       autoclose: true
     });
@@ -276,29 +280,27 @@ $.ajaxSetup({ cache: false });
   });
 </script>
 <script>
-
-
-</script>
-<script>
 var count=0;
 var stat=false;  // true for present
-
-function slidercount(idy){
-	var state=($('input#'+idy).bootstrapSwitch('state'))? "present":"absent";
-	//alert(state);
-/*			if(parseInt($('#'+id).attr('data-count'))%2==0){
-			if($('#'+id).attr('rel').includes("absent")){
-	$('#'+id).attr('rel','present');
-	}}
-	else{
-	$('#'+id).attr('rel','absent');
-	}
- count=parseInt($('#'+id).attr('data-count'))+1;
-$('#'+id).attr('data-count',count);
-*/
+$('.probeProbe').on('switchChange.bootstrapSwitch', function(event, state) {
+  console.log(this); // DOM element
+  console.log(event); // jQuery event
+  console.log(state); // true | false
+  var staty=(state)?"present":"absent";
+  //var state=($('input[data-count="'+ $(this).attr('data-count')+'"]').bootstrapSwitch('state'))? "present":"absent";
+  //alert($(this).attr('data-count'));
+	$.get("processattend.php?id="+$(this).attr('data-count')+"&attend="+staty ,function(){
+		});
+ 
+});
+/*function slidercount(idy,name,eve){
+	var state=($('input[data-count="'+idy+'"]').bootstrapSwitch('state'))? "present":"absent";
+	var confy=confirm("Confrim "+state+" for "+name+"..?");
+	if(confy)
 	$.get("processattend.php?id="+idy+"&attend="+state ,function(){
 		});
-}
+	else $('input[data-count="'+idy+'"]').bootstrapSwitch('toggleState');
+}*/
 </script>
 </body>
 </html>

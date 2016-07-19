@@ -1,8 +1,7 @@
 <?php
 	 error_reporting(E_ALL ^ E_DEPRECATED);
 	 session_start();
-
-date_default_timezone_set('Asia/kolkata');
+date_default_timezone_set('Asia/Kolkata');
 $link=mysql_connect('localhost','root','');
 if(!$link)
 {

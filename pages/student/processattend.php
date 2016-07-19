@@ -1,5 +1,6 @@
 <?php
 require_once('../include/connect.php');
+date_default_timezone_set('Asia/Kolkata');
 // ..............For updating attendance
 if(isset($_GET['id'])){
 $id=$_GET['id'];
@@ -20,8 +21,9 @@ if(isset($_GET['init'])){
 	$init=$_GET['init'];
 $result=mysql_query("select attendance from attendance where studid=$init");
 if(mysql_num_rows($result)){
+
 	$row=mysql_fetch_row($result);
-echo ($row[0]=="present")?"true":"false";}
+echo (strcmp($row[0],"present")==0)?1:0;}
 else
-echo "false";}
+echo 0;}
 ?>

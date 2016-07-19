@@ -2,9 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="92e48504-c015-46d1-a176-e8285760abc4" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BlackShadow.clpprj" afterPath="$PROJECT_DIR$/BlackShadow.clpprj" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/admin/adduser.php" afterPath="$PROJECT_DIR$/pages/admin/adduser.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/admin/changepass.php" afterPath="$PROJECT_DIR$/pages/admin/changepass.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/admin/processadduser.php" afterPath="$PROJECT_DIR$/pages/admin/processadduser.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/include/sidebar.php" afterPath="$PROJECT_DIR$/pages/include/sidebar.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/student/addstud.php" afterPath="$PROJECT_DIR$/pages/student/addstud.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/student/addstudent.php" afterPath="$PROJECT_DIR$/pages/student/addstudent.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/student/attend.php" afterPath="$PROJECT_DIR$/pages/student/attend.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/student/attendance.php" afterPath="$PROJECT_DIR$/pages/student/attendance.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/student/connect.php" afterPath="$PROJECT_DIR$/pages/student/connect.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/student/duescalc.php" afterPath="$PROJECT_DIR$/pages/student/duescalc.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/student/studentlist.php" afterPath="$PROJECT_DIR$/pages/student/studentlist.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/student/viewdetail.php" afterPath="$PROJECT_DIR$/pages/student/viewdetail.php" />
     </list>
     <ignored path="vebmate.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -28,12 +38,10 @@
       <file leaf-file-name="sidebar.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pages/include/sidebar.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="20" column="16" selection-start-line="9" selection-start-column="0" selection-end-line="20" selection-end-column="16" />
+            <state relative-caret-position="255">
+              <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
               <folding>
-                <element signature="n#style#0;n#div#0;n#div#0;n#section#0;n#aside#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#section#0;n#aside#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#div#0;n#section#0;n#aside#0;n#!!top" expanded="true" />
+                <marker date="1468609261490" expanded="true" signature="810:855" ph="select * fro... login_info" />
               </folding>
             </state>
           </provider>
@@ -87,7 +95,7 @@
     <ConfirmationsSetting value="0" id="Remove" />
   </component>
   <component name="ProjectView">
-    <navigator proportions="" version="1">
+    <navigator currentView="ProjectPane" proportions="" version="1">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -100,7 +108,30 @@
       <manualOrder />
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes />
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vebmate" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vebmate" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vebmate" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scratches" />
+      <pane id="Scope" />
+    </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.PHP" />
@@ -189,17 +220,18 @@
       <workItem from="1468429820588" duration="1225000" />
       <workItem from="1468508645081" duration="1138000" />
       <workItem from="1468511675636" duration="970000" />
+      <workItem from="1468606705368" duration="1291000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="11127000" />
+    <option name="totallyTimeSpent" value="12418000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19818456" sideWeight="0.49346405" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16944024" sideWeight="0.49346405" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Grunt " active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25718608" sideWeight="0.50653595" order="2" side_tool="true" content_ui="tabs" />
@@ -267,12 +299,10 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/pages/include/sidebar.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+        <state relative-caret-position="340">
+          <caret line="20" column="16" selection-start-line="9" selection-start-column="0" selection-end-line="20" selection-end-column="16" />
           <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#section#0;n#aside#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#section#0;n#aside#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#section#0;n#aside#0;n#!!top" expanded="true" />
+            <marker date="1468609261490" expanded="true" signature="810:855" ph="select * fro... login_info" />
           </folding>
         </state>
       </provider>
@@ -282,9 +312,7 @@
         <state relative-caret-position="136">
           <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
           <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#section#0;n#aside#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#section#0;n#aside#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#section#0;n#aside#0;n#!!top" expanded="true" />
+            <marker date="1468609261490" expanded="true" signature="810:855" ph="select * fro... login_info" />
           </folding>
         </state>
       </provider>
@@ -294,9 +322,17 @@
         <state relative-caret-position="136">
           <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
           <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#section#0;n#aside#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#section#0;n#aside#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#section#0;n#aside#0;n#!!top" expanded="true" />
+            <marker date="1468609261490" expanded="true" signature="810:855" ph="select * fro... login_info" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/include/sidebar.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding>
+            <marker date="1468609261490" expanded="true" signature="810:855" ph="select * fro... login_info" />
           </folding>
         </state>
       </provider>
@@ -320,9 +356,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#section#0;n#aside#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#section#0;n#aside#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#section#0;n#aside#0;n#!!top" expanded="true" />
+            <marker date="1468609261490" expanded="true" signature="810:855" ph="select * fro... login_info" />
           </folding>
         </state>
       </provider>
@@ -357,12 +391,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pages/include/sidebar.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="16" selection-start-line="9" selection-start-column="0" selection-end-line="20" selection-end-column="16" />
+        <state relative-caret-position="255">
+          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#section#0;n#aside#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#section#0;n#aside#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#section#0;n#aside#0;n#!!top" expanded="true" />
+            <marker date="1468609261490" expanded="true" signature="810:855" ph="select * fro... login_info" />
           </folding>
         </state>
       </provider>
