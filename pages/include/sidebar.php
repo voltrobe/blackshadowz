@@ -5,23 +5,27 @@ error_reporting(E_ALL ^ E_DEPRECATED);
 //session_start();
 //>>>>>>> origin/master
 $email = $_SESSION["email"]; ?>
-
+<header class="main-header">
+    <!-- Logo -->
+    <a href="../../index2.html" class="logo">
+      <!-- mini logo for sidebar mini 50x50 pixels -->
+      <span class="logo-mini"><b class="fa fa-dashboard">BS</b></span>
+      <!-- logo for regular state and mobile devices -->
+      <span class="logo-lg"><b>Black</b>Shadowz</span>
+    </a>
+    <!-- Header Navbar: style can be found in header.less -->
+    <nav class="navbar navbar-static-top">
+      <!-- Sidebar toggle button-->
+      <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+        <span class="sr-only">Toggle navigation</span>
+      </a>
+    </nav>
+  </header>
+  <!-- Left side column. contains the logo and sidebar -->
+  <aside class="main-sidebar">
+    <!-- sidebar: style can be found in sidebar.less -->
 <script src="../../plugins/pace-macosx.js"></script>
 
-<header>
-    <ul class="dropdown-menu">
-        <!-- User image -->
-        <li class="user-header">
-            <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
-
-            <p>
-                Alexander Pierce - Web Developer
-                <small>Member since Nov. 2012</small>
-            </p>
-        </li>
-    </ul>
-Developer
-</header>
 
 
 <!-- Left side column. contains the logo and sidebar -->
@@ -74,14 +78,14 @@ Developer
                         class="fa fa-bullhorn"></i> <span>Attendance</span></a></li>
 
             <!-- >>>>>> origin/master -->
-            <li><a href="#"><i class="fa fa-link"></i> <span>Fees information</span></a></li>
+            <li><a href="#"><i class="fa fa-pie-chart"></i> <span>Fees information</span></a></li>
             <li class='treeview <?php active('changepass.php');
             active('adduser.php'); ?>'>
                 <a href="#"><i class="fa fa-edit"></i> <span>Settings</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
-                    <li class='<?php active('changepass.php'); ?>'><a href="../admin/changepass.php">Change password</a>
+                    <li class='<?php active('changepass.php'); ?>'><a href="../admin/changepass.php"><i class="fa fa-laptop"></i>Change password</a>
                     </li>
-                    <li class='<?php active('adduser.php'); ?>'><a href="../admin/adduser.php">Add a user account</a>
+                    <li class='<?php active('adduser.php'); ?>'><a href="../admin/adduser.php"><i class="fa fa-files-o"></i>Add a user account</a>
                     </li>
                 </ul>
             </li>
@@ -91,4 +95,4 @@ Developer
         <!-- /.sidebar-menu -->
     </section>
     <!-- /.sidebar -->
-</aside>
+</aside></aside>
