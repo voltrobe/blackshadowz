@@ -1,5 +1,4 @@
 <?php
-
 require_once('dbconfig.php');
 if(!isset($_SESSION['userid']))
 header('Location: ../../index.php');

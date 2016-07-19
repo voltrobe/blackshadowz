@@ -3,10 +3,11 @@
 	{
 		$batch=$_POST['batch'];
 		$_SESSION['batchselect']=$batch;
+		$bt=$_SESSION['batchselect'];
 	}
 	else
 	{
-		$_SESSION['batchselect']=$batch="";
+		$_SESSION['batchselect']=$batch=$bt="";
 	}
 require_once('../include/connect.php');
 if(!isset($_SESSION['userid']))
@@ -101,15 +102,15 @@ header('Location: ../../index.php');
             <div class="box-body">
               <div class="box box-info" >
             <div class="box-header with-border">
-              <h3 class="box-title">Fields with * are mandatory.</h3>
+              <h3 class="box-title"><?php echo isset($bt)?ucwords($bt." Batch"):"Fields with * are mandatory."; ?></h3>
             </div>
             <!-- /.box-header -->
             <!-- form start -->
             <form class="form-horizontal" method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) ?>">
               <div class="box-body">
               <div class="form-group">
-                  <label for="name" class="col-sm-2 control-label">Select Batch *</label>
-                  <div class="col-md-6">                        
+                  <label for="name" class="col-xs-2 col-sm-2 control-label">Select Batch *</label>
+                  <div class="col-xs-7 col-md-7">                        
                     <select id="batch" class="form-control select2" name="batch"  name="Select1">
                     	<option value="">Select a Batch</option>
                     	<option value="regular">Regular Batch</option>
@@ -117,9 +118,9 @@ header('Location: ../../index.php');
 						<option value="tuesday">Tuesday Batch</option>
 						<option value="weekend">Weekend Batch</option>
 					</select>
-					</div>
-					<button type="submit" class="btn btn-info" style="width: 150px">Submit</button>
-                  
+					</div><div class="col-xs-3 col-md-3"> 
+					<button type="submit" class="btn btn-info" >Submit</button>
+                  </div>
                 </div>
               </div>
               <!-- /.box-body -->
@@ -132,7 +133,7 @@ header('Location: ../../index.php');
                 <tr>
                   <th>Student Name</th>
                   <th>Phone No.</th>
-                  <th>Batch</th>
+                  <!--<th>Batch</th>-->
                   <th>Time/Date</th>
                   <th>Attendance</th>
                   
@@ -153,7 +154,7 @@ header('Location: ../../index.php');
                        <tr>
                 <td><a href="viewdetail.php?id=<?php echo $row['id']; ?>"><?php echo ucwords($row['name']);?></a></td>
                 <td><?php echo $row['contact'];?></td>
-                <td><?php echo ucwords($row['batch']);?></td>
+                <!--<td><?php echo ucwords($row['batch']);?></td>-->
             	<td><?php echo date('D ,j M Y',$sqlrow[0]); ?></td>
                 <td>
                   <div class="make-switch">

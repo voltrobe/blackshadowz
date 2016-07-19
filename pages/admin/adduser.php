@@ -93,31 +93,31 @@ header('Location: ../../index.php');
              
               <div class="col-md-7"><br/>
               <div class="form-group">
-                  <label for="name" class="col-sm-3 control-label">Name *</label>
+                  <label for="name" class="col-xs-3 control-label">Name *</label>
 
-                  <div class="col-md-8">
+                  <div class="col-xs-8">
                     <input type="text" class="form-control" id="name" name="name" placeholder="Name" required>
                   </div>
                 </div>
 				<div class="form-group">
-                  <label for="inputEmail3" class="col-sm-3 control-label">Email *</label>
+                  <label for="inputEmail3" class="col-xs-3 control-label">Email *</label>
 
-                  <div class="col-md-8">
+                  <div class="col-xs-8">
                     <input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
                   </div>
 				</div>
                   
                 <div class="form-group">
-                  <label for="inputEmail3" class="col-sm-3 control-label">Enter Password *</label>
+                  <label for="inputEmail3" class="col-xs-3 control-label">Enter Password *</label>
 
-                  <div class="col-md-8">
+                  <div class="col-xs-8">
                     <input type="password" class="form-control" id="pass1" name="pass1" placeholder="Enter Password" required>
                   </div>
 				</div>
 				<div class="form-group">
-                  <label for="inputEmail3" class="col-sm-3 control-label">Confirm Password *</label>
+                  <label for="inputEmail3" class="col-xs-3 control-label">Confirm Password *</label>
 
-                  <div class="col-md-8">
+                  <div class="col-xs-8">
                     <input type="password" class="form-control" id="pass2" name="pass2" placeholder="Confirm Password" onkeyup="checkPass(); return false;" required>
                   <span id="confirmMessage" class="confirmMessage"></span>
                   </div>
@@ -126,12 +126,12 @@ header('Location: ../../index.php');
                 <!-- Image Upload -->
 				
 				<div class="form-group col-md-5">
-                      <label class="control-label col-lg-4">Select Image</label>
-                        <div class="col-md-6">
+                      <label class="control-label col-xs-4">Select Image</label>
+                        <div class="col-xs-6">
                             <div class="fileupload fileupload-new" data-provides="fileupload">
                                 <div class="fileupload-new thumbnail" style="width: 200px; height: 150px;"><img src="../../assets/img/demoUpload.jpg" alt="" /></div>
                                 <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
-                                <div>
+                                <div >
                                     <span class="btn btn-file btn-primary"><span class="fileupload-new">
 									Select image</span><span class="fileupload-exists">Change</span><input type="file" name="image" id="image" style="right: 0; top: 0" /></span>
                                     <a href="#" class="btn btn-danger fileupload-exists" data-dismiss="fileupload">
@@ -144,8 +144,8 @@ header('Location: ../../index.php');
                               
               <!-- /.box-body -->
               <div class="box-footer" >
-              	<button type="submit" id="submit" class="btn btn-info pull-right" style="width: 150px">Submit</button>
-                <span><button type="reset" class="btn btn-default pull-right" style="width: 150px;margin-right:40px;">Cancel</button></span>
+              	<button type="submit" id="submit" class="btn btn-info pull-right" style="width: 110px">Submit</button>
+                <span><button type="reset" class="btn btn-default pull-right" style="width: 110px;margin-right:40px;">Cancel</button></span>
                 
               </div>
               <!-- /.box-footer -->

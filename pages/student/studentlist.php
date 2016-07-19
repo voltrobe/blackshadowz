@@ -75,7 +75,7 @@ header('Location: ../../index.php');
                 <tr>
                   <th>Batch Day</th>
                   <th>Student Name</th>
-                  <th>Date of joining</th>
+                  <!--<th>Date of joining</th>-->
                   <th>Contact info</th>
                   <th class='text-center'>Fees paid / Total</th>
                   <th>Dues</th>
@@ -112,7 +112,7 @@ if($num > 0)
                 <tr>
                   <td><?php echo $batch;?></td>
                   <td><a href="viewdetail.php?id=<?php echo $id;?>"><span id="name"><?php echo ucfirst($name);?></span></a></td>
-                  <td><?php echo $doj;?></td>
+                  <!--<td><?php echo $doj;?></td>-->
                   <td><?php echo $contact;?></td>
                   <td class="text-center"><?php echo $feespaid." / ".$totalfees;?></td>
                   <td><?php echo $dues;?></td>

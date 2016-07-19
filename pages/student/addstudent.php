@@ -98,86 +98,86 @@ header('Location: ../../index.php');
               <div class="col-md-13">
 <!-- >>>>>>> origin/master-->
               <div class="form-group">
-                  <label for="name" class="col-sm-3 control-label">Name *</label>
+                  <label for="name" class="col-xs-3 control-label">Name *</label>
 
-                  <div class="col-md-8">
+                  <div class="col-xs-8">
                     <input type="text" class="form-control" id="name" name="name" placeholder="Name" required>
                   </div>
                 </div>
 				<div class="form-group">
-                  <label for="inputEmail3" class="col-sm-3 control-label">Email</label>
+                  <label for="inputEmail3" class="col-xs-3 control-label">Email</label>
 
-                  <div class="col-md-8">
+                  <div class="col-xs-8">
                     <input type="email" class="form-control" id="email" name="email" placeholder="Email">
                   </div>
                 </div>
 
                 <div class="form-group">
-                  <label for="inputEmail3" class="col-sm-3 control-label">Contact *
+                  <label for="inputEmail3" class="col-xs-3 control-label">Contact *
                 </label>
 
-                  <div class="col-md-8">
+                  <div class="col-xs-8">
                     <input type="text" class="form-control" id="contact" name="contact" placeholder="Contact number" required>
                   </div>
                 </div>
             <div class="form-group">
-                  <label for="inputPassword3" class="col-sm-3 control-label">Gender 
+                  <label for="inputPassword3" class="col-xs-3 control-label">Gender 
 					*</label>
 
-                  <div class="col-md-3">
+                  <div class="col-xs-3">
                  Male: <input type="radio"  id="gender" value="male" name="gender"  required> Female: <input type="radio"  id="gender" name="gender" value="female"  required>
            
           </div>          
                 
                 <div class="form-group">
-                  <label for="inputPassword3" class="col-sm-2 control-label">Occupation 
+                  <label for="inputPassword3" class="col-xs-2 control-label">Occupation 
 					*</label>
 
-                  <div class="col-md-3">
+                  <div class="col-xs-3">
                     <input type="text" class="form-control" id="occupation" name="occupation" placeholder="occupation" required>
                   </div>
                 </div>
 			</div>
              <div class="form-group">
-                  <label for="inputPassword3" class="col-sm-3 control-label">Age 
+                  <label for="inputPassword3" class="col-xs-3 control-label">Age 
 					*</label>
 
-                  <div class="col-md-3">
+                  <div class="col-xs-3">
                     <input type="text" class="form-control" id="age" name="age" placeholder="Age" required>
                   </div>
                 
                 
                 <div class="form-group">
-                  <label for="inputPassword3" class="col-sm-2 control-label">Date of Joining 
+                  <label for="inputPassword3" class="col-xs-2 control-label">Date of Joining 
 					*</label>
 
-                  <div class="col-md-3">
+                  <div class="col-xs-3">
                     <input type="text" class="form-control" id="datepicker" name="datepicker" placeholder="Date of joining" required>
                   </div>
                 </div>
 			</div>
 				
 			<div class="form-group">
-                  <label for="inputPassword3" class="col-sm-3 control-label">Total Fees*
+                  <label for="inputPassword3" class="col-xs-3 control-label">Total Fees*
                   </label>
 
-                  <div class="col-md-3">
+                  <div class="col-xs-3">
                     <input type="text" class="form-control" id="totalfees" name="totalfees" placeholder="Total fees" required>
                   </div>
                 
 				  <div class="form-group">
-                  <label for="inputPassword3" class="col-sm-2 control-label">Fees Paid</label>
+                  <label for="inputPassword3" class="col-xs-2 control-label">Fees Paid</label>
 
-                  <div class="col-md-3">
+                  <div class="col-xs-3">
                     <input type="text" class="form-control" id="feespaid" name="feespaid" placeholder="Fees paid">
                   </div>
                 </div>
 			</div>
                 <div class="form-group">
-                  <label for="inputPassword3" class="col-sm-3 control-label">Address 
+                  <label for="inputPassword3" class="col-xs-3 control-label">Address 
 					*</label>
 
-                  <div class="col-md-8">
+                  <div class="col-xs-8">
                     <textarea class="form-control" id="address" name="address" placeholder="Address" required></textarea>
                   </div>
                 </div>
@@ -193,8 +193,8 @@ header('Location: ../../index.php');
 				<div class='col-md-4'>
 					<!-- Image Upload -->
 					<div class="form-group">
-                        <label class="control-label col-lg-4">Select student Image</label>
-                        <div class="col-lg-8">
+                        <label class="control-label col-xs-4">Select student Image</label>
+                        <div class="col-xs-8">
                             <div class="fileupload fileupload-new" data-provides="fileupload">
                                 <div class="fileupload-new thumbnail" style="width: 200px; height: 150px;"><img src="../../assets/img/demoUpload.jpg" alt="" /></div>
                                 <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
@@ -210,9 +210,9 @@ header('Location: ../../index.php');
 				
               <!-- /.Form Select -->
 					<div class="form-group">
-						<label class="control-label col-lg-4">Batch</label>
+						<label class="control-label col-xs-3">Batch</label>
                         
-                <select  class="form-control select2" name='batch' style="width: 100%;" required>
+                <select class="form-control select2 col-xs-4" name='batch'  required>
                   <option value='regular' selected="selected">Regular Batch(Mon-TO-Sat)</option>
                   <option value='monday'>Monday Batch(Mon-Wed-Fri)</option>
                   <option value='tuesday'>Tuesday Batch(Tue-Thur-Sat)</option>
@@ -224,8 +224,8 @@ header('Location: ../../index.php');
 <!-- ======= -->
               <div class="box-footer" ><center>
 <!-- >>>>>>> origin/master -->
-              	<button type="submit" class="btn btn-info pull-right" style="width: 150px">Submit</button>
-                <span><button type="reset" class="btn btn-default pull-left" style="width: 150px">Cancel</button></span>
+              	<button type="submit" class="btn btn-info pull-right" style="width: 110px">Submit</button>
+                <span><button type="reset" class="btn btn-default pull-left" style="width: 110px">Cancel</button></span>
                 </center>
               </div>
               <!-- /.box-footer -->
