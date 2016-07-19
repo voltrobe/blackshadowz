@@ -1,5 +1,4 @@
 <?php
-
 require_once('../include/connect.php');
 if(!isset($_SESSION['userid']))
 header('Location: ../../index.php');
@@ -230,7 +229,7 @@ if($num > 0)
     <div class="pull-right hidden-xs">
       Developed by <a href="http://vebcrumbs.com" target="_blank"><b>Vebcrumbs.com</b></a>
     </div>
-    <strong>Copyright &copy; 2016 <a href="#">B<span class="text-light-blue">lackShadowz</span></a>.</strong> All rights
+    <strong>Copyright &copy; 2016 <a href="#">Blackk<span class="text-green">ShadowzZz</span></a>.</strong> All rights
     reserved.
   </footer>
 

@@ -7,6 +7,5 @@ require_once('../include/connect.php');
 	$finalamt=$rowy[7]+$_GET['paidamt'];
 	$dues=$rowy[6]-$finalamt;
 	mysql_query("update student_info set feespaid=$finalamt where id=$id ");
-	echo $finalamt."|".$dues;
-}
+	echo $finalamt."|".$dues;}
 ?>

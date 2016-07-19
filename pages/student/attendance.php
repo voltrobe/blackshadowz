@@ -186,7 +186,7 @@ header('Location: ../../index.php');
     <div class="pull-right hidden-xs">
       Developed by <a href="http://vebcrumbs.com" target="_blank"><b>Vebcrumbs.com</b></a>
     </div>
-    <strong>Copyright &copy; 2016 <a href="#">B<span class="text-light-blue">lackShadowz</span></a>.</strong> All rights
+    <strong>Copyright &copy; 2016 <a href="#">Blackk<span class="text-green">ShadowzZz</span></a>.</strong> All rights
     reserved.
   </footer>
 
@@ -267,8 +267,6 @@ $('.probeProbe').on('switchChange.bootstrapSwitch', function(event, state) {
   console.log(event); // jQuery event
   console.log(state); // true | false
   var staty=(state)?"present":"absent";
-  //var state=($('input[data-count="'+ $(this).attr('data-count')+'"]').bootstrapSwitch('state'))? "present":"absent";
-  //alert($(this).attr('data-count'));
 	$.get("processattend.php?id="+$(this).attr('data-count')+"&attend="+staty ,function(){
 		});
  
