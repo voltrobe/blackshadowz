@@ -27,7 +27,7 @@ header('Location: ../../index.php');
   <!-- Font Awesome -->
   <link rel="stylesheet" href="../../plugins/font-awesome.min.css">
     <!-- Popup window -->
- <link type="text/css" rel="stylesheet" href="../popup/popModal.css">
+<!-- <link type="text/css" rel="stylesheet" href="../popup/popModal.css">-->
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="../../dist/css/skins/_all-skins.min.css">
@@ -179,7 +179,7 @@ if($num > 0)
 <!-- jQuery 2.2.0 -->
 <script src="../../plugins/jQuery/jQuery-2.2.0.min.js"></script>
 <!--Popup script-->
-<script src="../popup/popModal.js"></script>
+<!--<script src="../popup/popModal.js"></script>-->
 <!-- Bootstrap 3.3.6 -->
 <script src="../../bootstrap/js/bootstrap.min.js"></script>
 <!-- DataTables -->
@@ -206,9 +206,9 @@ if($num > 0)
       "autoWidth": false
     });
         //popup
-$('#demo').popModal({
+/*$('#demo').popModal({
 html : $('#content').html()
-});	
+});	*/
 
   });
 </script>
@@ -218,6 +218,7 @@ html : $('#content').html()
 <?php
 //function pops($eventy){
 //if(isset($_GET['popy'])){
+	/*
 echo<<<_END
 <div id="popup1" style="display:none">
 	<div class="popup">
@@ -274,4 +275,5 @@ echo<<<_END
 _END;
 //}
 //}
+*/
 ?>

@@ -15,6 +15,8 @@ header('Location: ../../index.php');
   <!-- Bootstrap 3.3.6 -->
   <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
       <!-- Font Awesome -->
+       <link rel="stylesheet" href="../../assets/plugins/Font-Awesome/css/font-awesome.css" />
+
   <link rel="stylesheet" href="../../plugins/font-awesome.min.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="../../plugins/ionicons.min.css">
@@ -25,7 +27,7 @@ header('Location: ../../index.php');
   <!-- Theme style -->
   <link rel="stylesheet" href="../../dist/css/AdminLTE.min.css">
     <!-- Popup window -->
- <link type="text/css" rel="stylesheet" href="../popup/popModal.css">
+ <!--<link type="text/css" rel="stylesheet" href="../popup/popModal.css">-->
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="../../dist/css/skins/_all-skins.min.css">
@@ -312,7 +314,7 @@ if($num > 0)
 <!-- jQuery 2.2.0 -->
 <script src="../../plugins/jQuery/jQuery-2.2.0.min.js"></script>
 <!--Popup script-->
- <script src="../popup/popModal.js"></script>
+ <!--<script src="../popup/popModal.js"></script>-->
 <!-- Bootstrap 3.3.6 -->
 <script src="../../bootstrap/js/bootstrap.min.js"></script>
 <!-- DataTables -->
