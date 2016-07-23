@@ -133,10 +133,9 @@ header('Location: ../../index.php');
                 <tr>
                   <th>Student Name</th>
                   <th>Phone No.</th>
-                  <!--<th>Batch</th>-->
-                  <th>Time/Date</th>
                   <th>Attendance</th>
-                  
+                  <!--<th>Batch</th>-->
+                  <th>Time/Date</th>                  
                 </tr>
                 </thead>
                 <tbody>
@@ -155,13 +154,12 @@ header('Location: ../../index.php');
                 <td><a href="viewdetail.php?id=<?php echo $row['id']; ?>"><?php echo ucwords($row['name']);?></a></td>
                 <td><?php echo $row['contact'];?></td>
                 <!--<td><?php echo ucwords($row['batch']);?></td>-->
-            	<td><?php echo date('D ,j M Y',$sqlrow[0]); ?></td>
-                <td>
+            	<td>
                   <div class="make-switch">
     <input type="checkbox" onfocus="slidercount('<?php echo $row['id'] ?>','<?php echo $row['name'] ?>',this)" data-off-text="Absent"  data-count="<?php echo $row['id'] ?>" data-on-text="Present" data-on-color="success" data-off-color="warning"  class="probeProbe" />
 </div>
-      		
 				</td>
+				<td><?php echo date('D ,j M Y',$sqlrow[0]); ?></td>
               </tr><?php
                       $i++;  
                     }
