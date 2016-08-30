@@ -309,7 +309,8 @@ header('Location: ../../index.php');
 
     //Date picker
     $('#datepicker').datepicker({
-      autoclose: true
+      autoclose: true ,
+      format: 'dd/mm/yy'
     });
 
   });

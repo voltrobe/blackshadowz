@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 17, 2016 at 03:19 PM
+-- Generation Time: Aug 30, 2016 at 02:33 PM
 -- Server version: 5.6.21
 -- PHP Version: 5.6.3
 
@@ -31,7 +31,7 @@ CREATE TABLE IF NOT EXISTS `attendance` (
   `studname` varchar(100) NOT NULL,
   `studbatch` varchar(20) NOT NULL,
   `attendance` varchar(10) NOT NULL DEFAULT 'absent',
-  `attenddate` bigint(10) NOT NULL
+  `attenddate` varchar(20) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
@@ -39,9 +39,16 @@ CREATE TABLE IF NOT EXISTS `attendance` (
 --
 
 INSERT INTO `attendance` (`studid`, `studname`, `studbatch`, `attendance`, `attenddate`) VALUES
-(14, 'Tousif Sayyed', 'regular', 'absent', 1468745476),
-(15, 'ravindra', 'monday', 'present', 1468759407),
-(4, 'Sourabh', 'monday', 'absent', 1468759968);
+(14, 'Tousif Sayyed', 'regular', 'absent', '22/07/16'),
+(14, 'Tousif Sayyed', 'regular', 'present', '20/07/16'),
+(14, 'Tousif Sayyed', 'regular', 'present', '31/08/16'),
+(14, 'Tousif Sayyed', 'regular', 'absent', '21/08/16'),
+(14, 'Tousif Sayyed', 'regular', 'absent', '23/08/16'),
+(14, 'Tousif Sayyed', 'regular', 'present', '22/08/16'),
+(4, 'Sourabh', 'monday', 'present', '29/08/16'),
+(15, 'ravindra', 'monday', 'present', '29/08/16'),
+(14, 'Tousif Sayyed', 'regular', 'present', '30/08/16'),
+(16, 'santosh', 'tuesday', 'absent', '31/08/16');
 
 -- --------------------------------------------------------
 
@@ -87,22 +94,30 @@ CREATE TABLE IF NOT EXISTS `student_info` (
   `batch` varchar(50) NOT NULL,
   `gender` varchar(10) NOT NULL,
   `occupation` varchar(100) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `student_info`
 --
 
 INSERT INTO `student_info` (`id`, `name`, `email`, `contact`, `age`, `doj`, `totalfees`, `feespaid`, `address`, `myfile`, `batch`, `gender`, `occupation`) VALUES
-(2, 'tousif', 'tousif@yahoo.co.in', '7204704252', 30, '05/15/2016', 10000, 8400, 'House no 9, Old post office road, camp, Belgaum', '../../uploads/1466879194.jpg', 'weekend', 'male', 'engineer'),
-(4, 'Sourabh', 'test@test.test', '9876543210', 25, '06/21/2016', 2000, 1200, 'Bapat galli , house 13', '../../uploads/1466879077.jpg', 'monday', 'male', 'student'),
-(14, 'Tousif Sayyed', 'tousifcooldude@yahoo.co.in', '7204704252', 20, '06/14/2016', 5000, 1050, 'House no 9, Old post office road, camp, Belgaum', '../../uploads/1466879194.jpg', 'regular', 'male', 'student'),
-(15, 'ravindra', 'ravya@gmail.com', '8923648932', 24, '06/09/2016', 3000, 500, 'tilakwadi , lokhandwala complex', '../../uploads/1467083668.jpg', 'monday', 'male', 'doctor'),
-(16, 'santosh', 'vebcrumbs@gmail.com', '9864816487', 26, '07/15/2016', 2000, 600, 'tilakwadi , belgaum', '../../uploads/1468668866.jpg', 'tuesday', 'male', 'officer');
+(2, 'tousif', 'tousif@yahoo.co.in', '7204704252', 30, '20/05/16', 10000, 8400, 'House no 9, Old post office road, camp, Belgaum', '../../uploads/1466879194.jpg', 'weekend', 'male', 'engineer'),
+(4, 'Sourabh', 'test@test.test', '9876543210', 25, '21/06/16', 2000, 1250, 'Bapat galli , house 13', '../../uploads/1466879077.jpg', 'monday', 'male', 'student'),
+(14, 'Tousif Sayyed', 'tousifcooldude@yahoo.co.in', '7204704252', 20, '14/06/16', 5000, 1050, 'House no 9, Old post office road, camp, Belgaum', '../../uploads/1466879194.jpg', 'regular', 'male', 'student'),
+(15, 'ravindra', 'ravya@gmail.com', '8923648932', 24, '09/06/16', 3000, 500, 'tilakwadi , lokhandwala complex', '../../uploads/1467083668.jpg', 'monday', 'male', 'doctor'),
+(16, 'santosh', 'vebcrumbs@gmail.com', '9864816487', 26, '15/07/16', 2000, 600, 'tilakwadi , belgaum', '../../uploads/1468668866.jpg', 'tuesday', 'male', 'officer'),
+(17, 'arun', 'arunk@gmail.com', '7834568789', 32, '30/08/16', 3200, 200, 'tilakwadi ,belgaum', '../../uploads/1472546642.jpg', 'tuesday', 'male', 'police'),
+(18, 'Arun K', 'arunk@gmail.com', '7834568789', 32, '29/08/16', 3200, 265, 'tilakwadi ,belgaum', '../../uploads/1472546754.jpg', 'monday', 'male', 'police');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `attendance`
+--
+ALTER TABLE `attendance`
+ ADD PRIMARY KEY (`studid`,`attenddate`), ADD UNIQUE KEY `studid` (`studid`,`attenddate`);
 
 --
 -- Indexes for table `login_info`
@@ -129,7 +144,7 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 -- AUTO_INCREMENT for table `student_info`
 --
 ALTER TABLE `student_info`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=17;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=19;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

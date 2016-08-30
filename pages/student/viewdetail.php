@@ -85,15 +85,15 @@ $num=mysql_num_rows($q);
 if(isset($_GET['updatefields']))
 {
 	//$id=$_GET['userid'];
-	$_GET['name'];
-	$_GET['email'];
-	$_GET['contact'];
-	$_GET['doj'];
-	$_GET['fees'];
-	$_GET['batch'];
-	$_GET['address'];
-	$_GET['gender'];
-	$_GET['occupation'];
+	$_GET['name'] =trim($_GET['name']," ");
+	$_GET['email'] = trim($_GET['email']," ");
+	$_GET['contact'] = trim($_GET['contact']," ");
+	$_GET['doj'] = trim($_GET['doj']," ");
+	$_GET['fees']= trim($_GET['fees']," ");
+	$_GET['batch'] = trim($_GET['batch']," ");
+	$_GET['address'] = trim($_GET['address']," ");
+	$_GET['gender'] = trim($_GET['gender']," ");
+	$_GET['occupation'] = trim($_GET['occupation']," ");
 	
 	mysql_query("update student_info set name='".$_GET['name']."',email='".$_GET['email']."',contact='".$_GET['contact']."',doj='".$_GET['doj']."',totalfees=".$_GET['fees'].",address='".$_GET['address']."',batch='".$_GET['batch']."',occupation='".$_GET['occupation']."',gender='".$_GET['gender']."'   where id=$id");
 }
@@ -150,7 +150,7 @@ if($num > 0)
                   </tr>
                  <tr> 
                   <th>Date of joining</th>
-                  <td><input type="text" style='display:none;' class="txtabledoj"  value="<?php echo $doj;?>" >
+                  <td><input type="text" style='display:none;' class="txtabledoj form-control" id="datepicker" name="datepicker" placeholder="Date of joining" value="<?php echo $doj;?>" >
 				  <span id='areadoj'><?php echo $doj;?></span>
 				  </td>
                   </tr>
@@ -299,6 +299,8 @@ if($num > 0)
 <script src="../../plugins/datatables/dataTables.bootstrap.min.js"></script>
 <!-- SlimScroll -->
 <script src="../../plugins/slimScroll/jquery.slimscroll.min.js"></script>
+<!-- bootstrap datepicker -->
+<script src="../../plugins/datepicker/bootstrap-datepicker.js"></script>
 <!-- FastClick -->
 <script src="../../plugins/fastclick/fastclick.js"></script>
 <script src="../../plugins/pace-macosx.js"></script>
@@ -309,6 +311,15 @@ if($num > 0)
 <!-- page script -->
 <script type="text/javascript">
 $.ajaxSetup({ cache: false });
+  $(function () {
+
+    //Date picker
+    $('#datepicker').datepicker({
+      autoclose: true ,
+      format: 'dd/mm/yy'
+    });
+
+  });
 	var j=1;
 	$(document).ajaxStart(function() { Pace.restart(); });
 function feespaid(studid,paid) {

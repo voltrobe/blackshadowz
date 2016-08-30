@@ -32,7 +32,7 @@ $email = $_SESSION["email"]; ?>
 <aside class="main-sidebar">
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
-
+ 
         <?php
 
         $sql = mysql_query("select * from login_info where email='$email'");
