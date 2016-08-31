@@ -1,11 +1,13 @@
 ﻿<?php
 session_start();
-if(isset($_SESSION['userid']))
-header('Location: pages/student/studentlist.php');
+//header('Location: pages/student/studentlist.php');
 ?>
 <!DOCTYPE html>
 <html>
 <head>
+<?php if(isset($_SESSION['userid'])){ ?>
+<meta http-equiv="refresh" content="1;url=pages/student/studentlist.php"/>
+<?php }?>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Attendance | BlackkShadowzzz</title>
